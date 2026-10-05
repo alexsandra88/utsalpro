@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementasi Bubble Sort dalam C++ - C++ AlgoBlog</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Highlight.js for Syntax Highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fa-solid fa-code"></i> C++ AlgoBlog</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Beranda</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <!-- Breadcrumb -->
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
+                        <li class="breadcrumb-item"><a href="#">Sorting</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Bubble Sort</li>
+                    </ol>
+                </nav>
+
+                <!-- Post Title -->
+                <h1 class="fw-bold mb-3">Studi Kasus: Implementasi Bubble Sort dalam C++</h1>
+                <div class="text-muted mb-4">
+                    <i class="fa-regular fa-calendar"></i> 5 Oktober 2026 &nbsp;&bull;&nbsp; 
+                    <i class="fa-regular fa-user"></i> Admin &nbsp;&bull;&nbsp;
+                    <span class="badge bg-success">Sorting</span>
+                </div>
+
+                <!-- Post Content -->
+                <article class="blog-post">
+                    <p><strong>Bubble Sort</strong> adalah salah satu algoritma pengurutan yang paling sederhana. Algoritma ini bekerja dengan cara menukar elemen yang berdekatan secara berulang jika mereka berada dalam urutan yang salah.</p>
+
+                    <h3>Studi Kasus</h3>
+                    <p>Bayangkan kita memiliki kumpulan nilai ujian mahasiswa yang belum terurut. Kita diminta untuk membuat program yang dapat mengurutkan nilai-nilai tersebut dari yang terkecil hingga terbesar.</p>
+                    
+                    <div class="alert alert-info">
+                        <strong>Contoh Input:</strong> 64, 34, 25, 12, 22, 11, 90 <br>
+                        <strong>Output yang Diharapkan:</strong> 11, 12, 22, 25, 34, 64, 90
+                    </div>
+
+                    <h3>Implementasi C++</h3>
+                    <p>Berikut adalah kode C++ untuk menyelesaikan studi kasus di atas:</p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+// Fungsi untuk melakukan bubble sort
+void bubbleSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        // Elemen terakhir i sudah berada di tempat yang benar
+        for (int j = 0; j < n - i - 1; j++) {
+            // Tukar jika elemen yang ditemukan lebih besar
+            // dari elemen berikutnya
+            if (arr[j] > arr[j + 1]) {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+// Fungsi untuk mencetak array
+void printArray(int arr[], int size) {
+    for (int i = 0; i < size; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+}
+
+int main() {
+    int arr[] = {64, 34, 25, 12, 22, 11, 90};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    
+    cout << "Array sebelum diurutkan: \n";
+    printArray(arr, n);
+    
+    bubbleSort(arr, n);
+    
+    cout << "\nArray setelah diurutkan: \n";
+    printArray(arr, n);
+    return 0;
+}
+</code></pre>
+
+                    <h3 class="mt-4">Analisis Kompleksitas</h3>
+                    <ul>
+                        <li><strong>Time Complexity:</strong> O(N<sup>2</sup>) pada kasus terburuk dan rata-rata, dimana N adalah jumlah item yang diurutkan. O(N) jika array sudah terurut (dengan optimasi flag).</li>
+                        <li><strong>Space Complexity:</strong> O(1) karena hanya menggunakan variabel <i>temporary</i> tambahan.</li>
+                    </ul>
+                </article>
+
+                <hr class="my-5">
+                <!-- Author Box -->
+                <div class="d-flex p-4 bg-light rounded">
+                    <div class="flex-shrink-0">
+                        <img src="https://ui-avatars.com/api/?name=Admin&background=0D8ABC&color=fff" alt="Author" class="rounded-circle" width="60">
+                    </div>
+                    <div class="ms-3">
+                        <h5 class="mb-1">Ditulis oleh Admin</h5>
+                        <p class="mb-0 text-muted">Seorang pengembang perangkat lunak yang gemar memecahkan masalah algoritmik menggunakan bahasa pemrograman C++ dan berbagi ilmu melalui tulisan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-4 bg-dark text-white text-center mt-5">
+        <div class="container">
+            <p class="m-0">Copyright &copy; C++ AlgoBlog 2026 | Dibuat dengan Bootstrap 5</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Highlight.js for Syntax Highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/cpp.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <!-- Custom JS -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

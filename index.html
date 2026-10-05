@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ AlgoBlog - Studi Kasus Algoritma</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fa-solid fa-code"></i> C++ AlgoBlog</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tentang">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#kategori">Kategori</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header / Hero Section -->
+    <header class="bg-primary text-white text-center py-5 hero-section">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Koleksi Studi Kasus Algoritma C++</h1>
+            <p class="lead">Menyelesaikan masalah pemrograman dengan struktur data dan algoritma menggunakan bahasa C++.</p>
+            <a href="#postingan" class="btn btn-light btn-lg mt-3">Mulai Membaca</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container my-5" id="postingan">
+        <div class="row">
+            <!-- Blog Posts -->
+            <div class="col-lg-8">
+                <h2 class="mb-4 border-bottom pb-2">Postingan Terbaru</h2>
+
+                <!-- Post 1 -->
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">Sorting</span>
+                        <h3 class="card-title h4">Implementasi Bubble Sort dalam C++</h3>
+                        <p class="card-text text-muted">Pelajari bagaimana cara mengimplementasikan algoritma Bubble Sort dari awal menggunakan C++ lengkap dengan analisis kompleksitas waktunya.</p>
+                        <a href="case-study-1.html" class="btn btn-outline-primary btn-sm">Baca Selengkapnya &rarr;</a>
+                    </div>
+                    <div class="card-footer text-muted small">
+                        Diposting pada 5 Oktober 2026 oleh Admin
+                    </div>
+                </div>
+
+                <!-- Post 2 -->
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <span class="badge bg-danger mb-2">Pencarian (Searching)</span>
+                        <h3 class="card-title h4">Mencari Data dengan Binary Search</h3>
+                        <p class="card-text text-muted">Studi kasus pencarian data pada array yang sudah terurut menggunakan metode Binary Search (Pencarian Bagi Dua) dalam bahasa C++.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm">Baca Selengkapnya &rarr;</a>
+                    </div>
+                    <div class="card-footer text-muted small">
+                        Diposting pada 3 Oktober 2026 oleh Admin
+                    </div>
+                </div>
+                
+                <!-- Pagination -->
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Sebelumnya</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Selanjutnya</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <!-- Search Widget -->
+                <div class="card mb-4">
+                    <div class="card-header bg-dark text-white">Pencarian</div>
+                    <div class="card-body">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Cari algoritma...">
+                            <button class="btn btn-primary" type="button" id="button-search"><i class="fa-solid fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categories Widget -->
+                <div class="card mb-4" id="kategori">
+                    <div class="card-header bg-dark text-white">Kategori</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li><a href="#" class="text-decoration-none">Sorting</a></li>
+                                    <li><a href="#" class="text-decoration-none">Searching</a></li>
+                                    <li><a href="#" class="text-decoration-none">Dynamic Programming</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li><a href="#" class="text-decoration-none">Graph</a></li>
+                                    <li><a href="#" class="text-decoration-none">Tree</a></li>
+                                    <li><a href="#" class="text-decoration-none">Struktur Data</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Widget -->
+                <div class="card mb-4" id="tentang">
+                    <div class="card-header bg-dark text-white">Tentang Blog Ini</div>
+                    <div class="card-body">
+                        <p class="mb-0">Blog ini didedikasikan untuk mendokumentasikan berbagai studi kasus pemrograman dan algoritma menggunakan bahasa C++. Cocok untuk mahasiswa dan penggemar competitive programming.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-4 bg-dark text-white text-center">
+        <div class="container">
+            <p class="m-0">Copyright &copy; C++ AlgoBlog 2026 | Dibuat dengan Bootstrap 5</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
