@@ -57,3 +57,24 @@ pre {
     background-color: #f0f8ff;
     color: #055160;
 }
+
+/* Terminal Console Mockup Styling */
+.terminal-window {
+    background-color: #1e1e1e;
+    color: #00ff66;
+    font-family: 'Consolas', 'Courier New', monospace;
+    border-radius: 6px;
+    padding: 1.2rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Trace Table & Flowchart Styling */
+.table-trace {
+    font-size: 0.9rem;
+    border-color: #dee2e6;
+}
+
+.table-trace th {
+    background-color: #212529;
+    color: #ffffff;
+}
