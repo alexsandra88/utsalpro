@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis Masalah - Studi Kasus 03: Pengolahan Nilai Mata Kuliah</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fa-solid fa-graduation-cap text-primary"></i> SSI1144 Proyek UTS
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fa-solid fa-house"></i> Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="analisis-masalah.html"><i class="fa-solid fa-brain"></i> Analisis Masalah</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="modul-a.html"><i class="fa-solid fa-microchip"></i> Modul A</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="modul-b.html"><i class="fa-solid fa-chart-pie"></i> Modul B</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="program-terintegrasi.html"><i class="fa-solid fa-network-wired"></i> Program Integrasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="refleksi.html"><i class="fa-solid fa-clipboard-check"></i> Refleksi &amp; AI</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header / Hero Section -->
+    <header class="py-5 text-white" style="background: linear-gradient(135deg, #1f4037, #99f2c8);">
+        <div class="container text-dark">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-dark text-decoration-none">Beranda</a></li>
+                    <li class="breadcrumb-item active text-dark fw-bold" aria-current="page">Analisis Masalah</li>
+                </ol>
+            </nav>
+            <span class="badge bg-dark text-white px-3 py-2 mb-2 font-monospace">Dokumentasi Tahap 1 &amp; 2</span>
+            <h1 class="display-5 fw-bold text-dark">Analisis Masalah &amp; Input-Process-Output (IPO)</h1>
+            <p class="lead mb-0 text-dark">Pemodelan komprehensif permasalahan pengolahan nilai mata kuliah, penentuan batasan, variabel, dan tipe data.</p>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container my-5">
+        <div class="row">
+            
+            <div class="col-lg-12">
+                <!-- 1. Latar Belakang & Rumusan Masalah -->
+                <div class="card shadow-sm border-0 mb-4">
+                    <div class="card-body p-4">
+                        <h3 class="fw-bold text-primary border-bottom pb-2 mb-3">
+                            <i class="fa-solid fa-book-open me-2"></i>1. Latar Belakang &amp; Rumusan Masalah
+                        </h3>
+                        <p class="lh-lg">
+                            Dalam dunia pendidikan tinggi, evaluasi hasil belajar mahasiswa merupakan kegiatan krusial yang menuntut akurasi tinggi, objektivitas, dan kecepatan. Pada proses konvensional, perhitungan manual nilai akhir yang melibatkan persentase berbobot, pengelompokan huruf mutu, serta evaluasi kelulusan multi-kriteria sering kali rentan terhadap kesalahan manusia (<em>human error</em>).
+                        </p>
+                        <p class="lh-lg">
+                            Pada <strong>Studi Kasus 03: Sistem Pengolahan Nilai Mata Kuliah</strong>, dosen memerlukan program otomasi berbasis konsol/terminal C++ yang mampu mengolah data beberapa mahasiswa sekaligus secara konsisten. Sistem tidak hanya mengkalkulasi nilai individual secara adil, tetapi juga menyusun rekapitulasi performa kelas sebagai bahan evaluasi proses pembelajaran.
+                        </p>
+                        <div class="alert alert-info">
+                            <strong>Rumusan Masalah Utama:</strong>
+                            <ol class="mb-0 mt-2">
+                                <li>Bagaimana mengimplementasikan perhitungan nilai akhir berbobot secara tepat (Tugas 20%, Kuis 15%, UTS 30%, UAS 35%)?</li>
+                                <li>Bagaimana mengkategorikan huruf mutu secara otomatis ke dalam rentang A hingga E?</li>
+                                <li>Bagaimana memvalidasi syarat kelulusan majemuk (Nilai Akhir &ge; 60, Nilai UAS &ge; 50, dan Kehadiran &ge; 75%)?</li>
+                                <li>Bagaimana melakukan agregasi statistik performa kelas (rata-rata, nilai tertinggi/terendah, rasio lulus) tanpa menggunakan array?</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Tujuan & Pengguna Program -->
+                <div class="card shadow-sm border-0 mb-4">
+                    <div class="card-body p-4">
+                        <h3 class="fw-bold text-primary border-bottom pb-2 mb-3">
+                            <i class="fa-solid fa-bullseye me-2"></i>2. Tujuan dan Pengguna Program
+                        </h3>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="p-3 bg-light rounded border h-100">
+                                    <h5 class="fw-bold text-success"><i class="fa-solid fa-flag me-2"></i>Tujuan Pengembangan Program</h5>
+                                    <ul class="lh-base mb-0">
+                                        <li>Membangun sistem otomasi penilaian yang cepat, presisi, dan transparan.</li>
+                                        <li>Mencegah kesalahan perhitungan nilai akhir dan subjektivitas penentuan kategori.</li>
+                                        <li>Menyediakan rekapitulasi kelas komprehensif bagi dosen pengampu untuk pelaporan mutu perkuliahan.</li>
+                                        <li>Menerapkan prinsip algoritma terstruktur: percabangan majemuk, validasi ketat, dan perulangan.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-3 bg-light rounded border h-100">
+                                    <h5 class="fw-bold text-primary"><i class="fa-solid fa-user-tie me-2"></i>Sasaran Pengguna (Target User)</h5>
+                                    <ul class="lh-base mb-0">
+                                        <li><strong>Dosen Pengampu Mata Kuliah:</strong> Menginput komponen nilai mahasiswa secara cepat serta memantau daya serap kelas secara langsung.</li>
+                                        <li><strong>Asisten Dosen / Administrasi Akademik:</strong> Membantu verifikasi data kehadiran dan komponen nilai sebelum finalisasi nilai semester.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Ketentuan dan Batasan Proyek -->
+                <div class="card shadow-sm border-0 mb-4">
+                    <div class="card-body p-4">
+                        <h3 class="fw-bold text-primary border-bottom pb-2 mb-3">
+                            <i class="fa-solid fa-shield-halved me-2"></i>3. Ketentuan dan Batasan Proyek
+                        </h3>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <h6 class="fw-bold text-dark"><i class="fa-solid fa-check me-1 text-success"></i> Ketentuan Logika Bisnis:</h6>
+                                <ul class="small lh-lg">
+                                    <li><strong>Bobot Komponen:</strong> Tugas 20%, Kuis 15%, UTS 30%, UAS 35%.</li>
+                                    <li><strong>Skala Nilai Huruf:</strong> A (85-100), B+ (80-84.99), B (75-79.99), C+ (70-74.99), C (60-69.99), D (50-59.99), E (&lt;50).</li>
+                                    <li><strong>Syarat Kelulusan Simultan:</strong> Mahasiswa wajib memenuhi (NA &ge; 60.00) AND (UAS &ge; 50.00) AND (Kehadiran &ge; 75.00%).</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="fw-bold text-dark"><i class="fa-solid fa-triangle-exclamation me-1 text-warning"></i> Batasan Teknis (Sesuai Panduan UTS):</h6>
+                                <ul class="small lh-lg">
+                                    <li>Program dijalankan berbasis <strong>Console / Terminal C++</strong> murni.</li>
+                                    <li><strong>Tanpa Array:</strong> Pemrosesan data berulang dilakukan dengan variabel akumulator berjalan.</li>
+                                    <li><strong>Validasi Input:</strong> Nilai negatif (&lt; 0) atau &gt; 100 ditolak secara logis dan diminta input ulang.</li>
+                                    <li><strong>Kekebalan Input (Anti-Crash):</strong> Input non-numerik ditangani dengan <code>cin.clear()</code> dan <code>cin.ignore()</code>.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Analisis Input-Process-Output (Tabel IPO Lengkap) -->
+                <div class="card shadow-sm border-0 mb-4">
+                    <div class="card-body p-4">
+                        <h3 class="fw-bold text-primary border-bottom pb-2 mb-3">
+                            <i class="fa-solid fa-network-wired me-2"></i>4. Analisis Input-Process-Output (IPO)
+                        </h3>
+                        <div class="table-responsive">
+                            <table class="table table-bordered align-top">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th style="width: 28%;">Data Masukan (Input)</th>
+                                        <th style="width: 44%;">Proses Algoritmik (Process)</th>
+                                        <th style="width: 28%;">Informasi Keluaran (Output)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <p class="fw-bold mb-1">Setiap Mahasiswa:</p>
+                                            <ul class="small ps-3">
+                                                <li>Nama Mahasiswa (String)</li>
+                                                <li>NIM Mahasiswa (String)</li>
+                                                <li>Nilai Tugas (Double, 0-100)</li>
+                                                <li>Nilai Kuis (Double, 0-100)</li>
+                                                <li>Nilai UTS (Double, 0-100)</li>
+                                                <li>Nilai UAS (Double, 0-100)</li>
+                                                <li>Persentase Kehadiran (Double, 0-100%)</li>
+                                            </ul>
+                                            <p class="fw-bold mb-1">Kontrol Alur:</p>
+                                            <ul class="small ps-3 mb-0">
+                                                <li>Pilihan Pengulangan (Char 'y'/'t')</li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <ol class="small ps-3 mb-0">
+                                                <li><strong>Validasi:</strong> Memeriksa keabsahan rentang 0-100 untuk semua nilai &amp; kehadiran. Mengulang input jika tidak valid.</li>
+                                                <li><strong>Perhitungan Nilai Akhir:</strong>
+                                                    <code>NA = (Tugas*0.20) + (Kuis*0.15) + (UTS*0.30) + (UAS*0.35)</code>
+                                                </li>
+                                                <li><strong>Penentuan Kategori:</strong>
+                                                    Percabangan bertingkat (if-else ladder) untuk menentukan A, B+, B, C+, C, D, E.
+                                                </li>
+                                                <li><strong>Pemeriksaan Multi-Syarat Kelulusan:</strong>
+                                                    Mengevaluasi kondisi logika majemuk <code>NA &ge; 60 &amp;&amp; UAS &ge; 50 &amp;&amp; Hadir &ge; 75</code>.
+                                                </li>
+                                                <li><strong>Akumulasi Rekapitulasi:</strong>
+                                                    Menambahkan nilai ke total sum, mencatat frekuensi kategori, serta membandingkan nilai tertinggi dan terendah.
+                                                </li>
+                                                <li><strong>Kalkulasi Agregat:</strong>
+                                                    Menghitung rata-rata kelas dan persentase kelulusan.
+                                                </li>
+                                            </ol>
+                                        </td>
+                                        <td>
+                                            <p class="fw-bold mb-1">Laporan Individual:</p>
+                                            <ul class="small ps-3">
+                                                <li>Rincian nilai mentah &amp; kontribusi bobot per komponen</li>
+                                                <li>Nilai Akhir presisi 2 desimal</li>
+                                                <li>Kategori Nilai Huruf</li>
+                                                <li>Status (LULUS / TIDAK LULUS) beserta catatan</li>
+                                            </ul>
+                                            <p class="fw-bold mb-1">Rekapitulasi Kelas:</p>
+                                            <ul class="small ps-3 mb-0">
+                                                <li>Total mahasiswa diproses</li>
+                                                <li>Jumlah lulus &amp; tidak lulus</li>
+                                                <li>Frekuensi tiap kategori A s.d. E</li>
+                                                <li>Nilai rata-rata kelas</li>
+                                                <li>Nilai tertinggi &amp; terendah (beserta nama)</li>
+                                                <li>Persentase rasio kelulusan</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Variabel dan Tipe Data Terpadu -->
+                <div class="card shadow-sm border-0 mb-4">
+                    <div class="card-body p-4">
+                        <h3 class="fw-bold text-primary border-bottom pb-2 mb-3">
+                            <i class="fa-solid fa-list-check me-2"></i>5. Tabel Variabel dan Tipe Data Terpadu
+                        </h3>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover table-bordered small">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Nama Variabel</th>
+                                        <th>Tipe Data</th>
+                                        <th>Nilai Awal</th>
+                                        <th>Peruntukan Modul</th>
+                                        <th>Fungsi / Kegunaan</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>namaMahasiswa</code></td>
+                                        <td><code>string</code></td>
+                                        <td>""</td>
+                                        <td>Modul A / Integrasi</td>
+                                        <td>Menyimpan nama lengkap mahasiswa.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>nimMahasiswa</code></td>
+                                        <td><code>string</code></td>
+                                        <td>""</td>
+                                        <td>Modul A / Integrasi</td>
+                                        <td>Menyimpan Nomor Induk Mahasiswa.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>nilaiTugas</code>, <code>nilaiKuis</code>, <code>nilaiUTS</code>, <code>nilaiUAS</code></td>
+                                        <td><code>double</code></td>
+                                        <td>0.0</td>
+                                        <td>Modul A / Integrasi</td>
+                                        <td>Menyimpan nilai mentah masing-masing komponen ujian (skala 0-100).</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>persentaseKehadiran</code></td>
+                                        <td><code>double</code></td>
+                                        <td>0.0</td>
+                                        <td>Modul A / Integrasi</td>
+                                        <td>Menyimpan persentase kehadiran perkuliahan (0-100%).</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>nilaiAkhir</code></td>
+                                        <td><code>double</code></td>
+                                        <td>0.0</td>
+                                        <td>Modul A &amp; B</td>
+                                        <td>Hasil penjumlahan seluruh komponen berbobot.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>kategoriNilai</code></td>
+                                        <td><code>string</code></td>
+                                        <td>""</td>
+                                        <td>Modul A &amp; B</td>
+                                        <td>Huruf mutu akademik (A, B+, B, C+, C, D, E).</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>statusKelulusan</code></td>
+                                        <td><code>string</code></td>
+                                        <td>""</td>
+                                        <td>Modul A &amp; B</td>
+                                        <td>Hasil evaluasi kelulusan ("LULUS" atau "TIDAK LULUS").</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>totalMahasiswa</code></td>
+                                        <td><code>int</code></td>
+                                        <td>0</td>
+                                        <td>Modul B / Integrasi</td>
+                                        <td>Akumulator jumlah total mahasiswa yang telah diinput.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>jumlahLulus</code>, <code>jumlahTidakLulus</code></td>
+                                        <td><code>int</code></td>
+                                        <td>0</td>
+                                        <td>Modul B / Integrasi</td>
+                                        <td>Akumulator penghitung mahasiswa yang berhasil dan gagal.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>jumlahA</code>, <code>jumlahBPlus</code>, ..., <code>jumlahE</code></td>
+                                        <td><code>int</code></td>
+                                        <td>0</td>
+                                        <td>Modul B / Integrasi</td>
+                                        <td>Penghitung frekuensi distribusi setiap grade huruf.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>totalNilaiAkhir</code></td>
+                                        <td><code>double</code></td>
+                                        <td>0.0</td>
+                                        <td>Modul B / Integrasi</td>
+                                        <td>Jumlah total nilai akhir untuk menghitung nilai rata-rata kelas.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>nilaiTertinggi</code>, <code>nilaiTerendah</code></td>
+                                        <td><code>double</code></td>
+                                        <td>0.0</td>
+                                        <td>Modul B / Integrasi</td>
+                                        <td>Pencatat nilai ekstrem tertinggi dan terendah di kelas.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>namaTertinggi</code>, <code>namaTerendah</code></td>
+                                        <td><code>string</code></td>
+                                        <td>"-"</td>
+                                        <td>Modul B / Integrasi</td>
+                                        <td>Nama mahasiswa pemilik nilai tertinggi dan terendah.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>pilihanUlang</code></td>
+                                        <td><code>char</code></td>
+                                        <td>'t'</td>
+                                        <td>Modul A, B, Integrasi</td>
+                                        <td>Menyimpan konfirmasi pengguna untuk mengulang transaksi ('y' / 't').</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation buttons -->
+                <div class="d-flex justify-content-between my-4">
+                    <a href="index.html" class="btn btn-outline-secondary">
+                        <i class="fa-solid fa-arrow-left me-1"></i> Kembali ke Beranda
+                    </a>
+                    <a href="modul-a.html" class="btn btn-primary">
+                        Lihat Modul A (Proses Utama) <i class="fa-solid fa-arrow-right ms-1"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-4 bg-dark text-white text-center mt-5">
+        <div class="container">
+            <p class="m-0 mb-1 fw-bold">Proyek UTS Algoritma &amp; Pengantar Pemrograman (SSI1144)</p>
+            <p class="m-0 text-muted small">Program Studi Sistem Informasi &bull; Fakultas Teknologi dan Desain &bull; Universitas Ma Chung</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
