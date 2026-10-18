@@ -16,6 +16,15 @@
 using namespace std;
 
 int main() {
+    // Deklarasi Konstanta Bobot Penilaian & Syarat Kelulusan
+    const double BOBOT_TUGAS     = 0.20;
+    const double BOBOT_KUIS      = 0.15;
+    const double BOBOT_UTS       = 0.30;
+    const double BOBOT_UAS       = 0.35;
+    const double SYARAT_MIN_NA   = 60.0;
+    const double SYARAT_MIN_UAS  = 50.0;
+    const double SYARAT_MIN_HADIR = 75.0;
+
     // Deklarasi Variabel
     string namaMahasiswa;
     string nimMahasiswa;
@@ -134,10 +143,10 @@ int main() {
         // PROSES PERHITUNGAN NILAI AKHIR (BOBOT)
         // Tugas: 20%, Kuis: 15%, UTS: 30%, UAS: 35%
         // ----------------------------------------------------
-        kontribusiTugas = nilaiTugas * 0.20;
-        kontribusiKuis  = nilaiKuis * 0.15;
-        kontribusiUTS   = nilaiUTS * 0.30;
-        kontribusiUAS   = nilaiUAS * 0.35;
+        kontribusiTugas = nilaiTugas * BOBOT_TUGAS;
+        kontribusiKuis  = nilaiKuis * BOBOT_KUIS;
+        kontribusiUTS   = nilaiUTS * BOBOT_UTS;
+        kontribusiUAS   = nilaiUAS * BOBOT_UAS;
         nilaiAkhir      = kontribusiTugas + kontribusiKuis + kontribusiUTS + kontribusiUAS;
 
         // ----------------------------------------------------
@@ -162,23 +171,23 @@ int main() {
         // ----------------------------------------------------
         // EVALUASI KELULUSAN
         // Syarat:
-        // 1. Nilai akhir >= 60
-        // 2. Nilai UAS >= 50
-        // 3. Kehadiran >= 75%
+        // 1. Nilai akhir >= SYARAT_MIN_NA (60.0)
+        // 2. Nilai UAS >= SYARAT_MIN_UAS (50.0)
+        // 3. Kehadiran >= SYARAT_MIN_HADIR (75.0%)
         // ----------------------------------------------------
         catatanKelulusan = "";
-        if (nilaiAkhir >= 60.0 && nilaiUAS >= 50.0 && persentaseKehadiran >= 75.0) {
+        if (nilaiAkhir >= SYARAT_MIN_NA && nilaiUAS >= SYARAT_MIN_UAS && persentaseKehadiran >= SYARAT_MIN_HADIR) {
             statusKelulusan = "LULUS";
             catatanKelulusan = "Memenuhi seluruh persyaratan kelulusan.";
         } else {
             statusKelulusan = "TIDAK LULUS";
-            if (nilaiAkhir < 60.0) {
+            if (nilaiAkhir < SYARAT_MIN_NA) {
                 catatanKelulusan += "[Nilai Akhir < 60] ";
             }
-            if (nilaiUAS < 50.0) {
+            if (nilaiUAS < SYARAT_MIN_UAS) {
                 catatanKelulusan += "[Nilai UAS < 50] ";
             }
-            if (persentaseKehadiran < 75.0) {
+            if (persentaseKehadiran < SYARAT_MIN_HADIR) {
                 catatanKelulusan += "[Kehadiran < 75%] ";
             }
         }
