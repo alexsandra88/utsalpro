@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C++ AlgoBlog - Studi Kasus Algoritma</title>
+    <title>Proyek UTS SSI1144 - Studi Kasus 03: Pengolahan Nilai Mata Kuliah</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -14,132 +14,295 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><i class="fa-solid fa-code"></i> C++ AlgoBlog</a>
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fa-solid fa-graduation-cap text-primary"></i> SSI1144 Proyek UTS
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Beranda</a>
+                        <a class="nav-link active" href="index.html"><i class="fa-solid fa-house"></i> Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#tentang">Tentang</a>
+                        <a class="nav-link" href="analisis-masalah.html"><i class="fa-solid fa-brain"></i> Analisis Masalah</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#kategori">Kategori</a>
+                        <a class="nav-link" href="modul-a.html"><i class="fa-solid fa-microchip"></i> Modul A</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="modul-b.html"><i class="fa-solid fa-chart-pie"></i> Modul B</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="program-terintegrasi.html"><i class="fa-solid fa-network-wired"></i> Program Integrasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="refleksi.html"><i class="fa-solid fa-clipboard-check"></i> Refleksi &amp; AI</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Header / Hero Section -->
-    <header class="bg-primary text-white text-center py-5 hero-section">
-        <div class="container">
-            <h1 class="display-4 fw-bold">Koleksi Studi Kasus Algoritma C++</h1>
-            <p class="lead">Menyelesaikan masalah pemrograman dengan struktur data dan algoritma menggunakan bahasa C++.</p>
-            <a href="#postingan" class="btn btn-light btn-lg mt-3">Mulai Membaca</a>
+    <!-- Hero Section -->
+    <header class="py-5 text-white hero-section" style="background: linear-gradient(135deg, #0d1b2a, #1b263b, #415a77);">
+        <div class="container text-center">
+            <span class="badge bg-primary px-3 py-2 mb-3 text-uppercase font-monospace">Ujian Tengah Semester &bull; Semester Ganjil</span>
+            <h1 class="display-4 fw-bold">FROM PROBLEM TO PROGRAM</h1>
+            <p class="lead text-light mb-2">Perancangan dan Implementasi Algoritma Berbasis Studi Kasus</p>
+            <h4 class="text-warning fw-semibold mt-3">Studi Kasus 03: Sistem Pengolahan Nilai Mata Kuliah</h4>
+            <p class="text-white-50">Program Studi Sistem Informasi &bull; Fakultas Teknologi dan Desain &bull; Universitas Ma Chung</p>
+            <div class="mt-4">
+                <a href="analisis-masalah.html" class="btn btn-outline-light btn-lg me-2 shadow-sm"><i class="fa-solid fa-brain me-1"></i> Analisis Masalah</a>
+                <a href="program-terintegrasi.html" class="btn btn-primary btn-lg shadow-sm"><i class="fa-solid fa-network-wired me-1"></i> Program Terintegrasi</a>
+            </div>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <div class="container my-5" id="postingan">
-        <div class="row">
-            <!-- Blog Posts -->
-            <div class="col-lg-8">
-                <h2 class="mb-4 border-bottom pb-2">Postingan Terbaru</h2>
-
-                <!-- Post 1 -->
-                <div class="card mb-4 shadow-sm">
-                    <div class="card-body">
-                        <span class="badge bg-success mb-2">Sorting</span>
-                        <h3 class="card-title h4">Implementasi Bubble Sort dalam C++</h3>
-                        <p class="card-text text-muted">Pelajari bagaimana cara mengimplementasikan algoritma Bubble Sort dari awal menggunakan C++ lengkap dengan analisis kompleksitas waktunya.</p>
-                        <a href="case-study-1.html" class="btn btn-outline-primary btn-sm">Baca Selengkapnya &rarr;</a>
-                    </div>
-                    <div class="card-footer text-muted small">
-                        Diposting pada 5 Oktober 2026 oleh Admin
-                    </div>
-                </div>
-
-                <!-- Post 2 -->
-                <div class="card mb-4 shadow-sm">
-                    <div class="card-body">
-                        <span class="badge bg-danger mb-2">Pencarian (Searching)</span>
-                        <h3 class="card-title h4">Mencari Data dengan Binary Search</h3>
-                        <p class="card-text text-muted">Studi kasus pencarian data pada array yang sudah terurut menggunakan metode Binary Search (Pencarian Bagi Dua) dalam bahasa C++.</p>
-                        <a href="#" class="btn btn-outline-primary btn-sm">Baca Selengkapnya &rarr;</a>
-                    </div>
-                    <div class="card-footer text-muted small">
-                        Diposting pada 3 Oktober 2026 oleh Admin
-                    </div>
-                </div>
-                
-                <!-- Pagination -->
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Sebelumnya</a></li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Selanjutnya</a></li>
-                    </ul>
-                </nav>
+    <!-- Main Container -->
+    <main class="container my-5">
+        <!-- Identity Group Card -->
+        <div class="card shadow-sm border-0 mb-5">
+            <div class="card-header bg-primary text-white py-3">
+                <h5 class="mb-0 fw-bold"><i class="fa-solid fa-users me-2"></i>Identitas Kelompok &amp; Proyek</h5>
             </div>
-
-            <!-- Sidebar -->
-            <div class="col-lg-4">
-                <!-- Search Widget -->
-                <div class="card mb-4">
-                    <div class="card-header bg-dark text-white">Pencarian</div>
-                    <div class="card-body">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Cari algoritma...">
-                            <button class="btn btn-primary" type="button" id="button-search"><i class="fa-solid fa-search"></i></button>
-                        </div>
+            <div class="card-body p-4">
+                <div class="row g-4">
+                    <div class="col-md-6 border-end">
+                        <h6 class="text-muted text-uppercase fw-bold">Informasi Akademik</h6>
+                        <table class="table table-sm table-borderless mt-2">
+                            <tr>
+                                <td class="fw-bold" style="width: 160px;">Mata Kuliah</td>
+                                <td>: Algoritma dan Pengantar Pemrograman</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold">Kode Mata Kuliah</td>
+                                <td>: SSI1144</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold">Program Studi</td>
+                                <td>: Sistem Informasi</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold">Kelompok</td>
+                                <td>: Kelompok 3 (Studi Kasus 03)</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold">Bahasa Program</td>
+                                <td>: C++ (Console Terminal)</td>
+                            </tr>
+                        </table>
                     </div>
-                </div>
-
-                <!-- Categories Widget -->
-                <div class="card mb-4" id="kategori">
-                    <div class="card-header bg-dark text-white">Kategori</div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <ul class="list-unstyled mb-0">
-                                    <li><a href="#" class="text-decoration-none">Sorting</a></li>
-                                    <li><a href="#" class="text-decoration-none">Searching</a></li>
-                                    <li><a href="#" class="text-decoration-none">Dynamic Programming</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-sm-6">
-                                <ul class="list-unstyled mb-0">
-                                    <li><a href="#" class="text-decoration-none">Graph</a></li>
-                                    <li><a href="#" class="text-decoration-none">Tree</a></li>
-                                    <li><a href="#" class="text-decoration-none">Struktur Data</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- About Widget -->
-                <div class="card mb-4" id="tentang">
-                    <div class="card-header bg-dark text-white">Tentang Blog Ini</div>
-                    <div class="card-body">
-                        <p class="mb-0">Blog ini didedikasikan untuk mendokumentasikan berbagai studi kasus pemrograman dan algoritma menggunakan bahasa C++. Cocok untuk mahasiswa dan penggemar competitive programming.</p>
+                    <div class="col-md-6">
+                        <h6 class="text-muted text-uppercase fw-bold">Anggota Kelompok</h6>
+                        <ul class="list-group list-group-flush mt-2">
+                            <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                <div>
+                                    <strong>Mahasiswa 1 (Anggota 1)</strong>
+                                    <div class="small text-muted">Penanggung Jawab Modul A (Proses Utama)</div>
+                                </div>
+                                <span class="badge bg-secondary">[NIM Anggota 1]</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                <div>
+                                    <strong>Mahasiswa 2 (Anggota 2)</strong>
+                                    <div class="small text-muted">Penanggung Jawab Modul B (Rekapitulasi)</div>
+                                </div>
+                                <span class="badge bg-secondary">[NIM Anggota 2]</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+
+        <!-- Section Ringkasan Kasus & Navigasi Modul -->
+        <div class="row mb-5" id="ringkasan">
+            <div class="col-lg-12">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body p-4">
+                        <h3 class="fw-bold text-dark border-bottom pb-2 mb-3">
+                            <i class="fa-solid fa-file-lines text-primary me-2"></i>Struktur Modul Proyek UTS
+                        </h3>
+                        <p class="lead">
+                            Dokumentasi proyek terbagi secara sistematis mengikuti tahapan perancangan algoritma mulai dari analisis masalah, proses individual, rekapitulasi kelas, hingga penggabungan terintegrasi dan refleksi.
+                        </p>
+                        
+                        <div class="row g-4 mt-2">
+                            <!-- Card Analisis Masalah -->
+                            <div class="col-md-4">
+                                <div class="card h-100 border-info border-2 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="bg-info text-dark p-3 rounded-circle me-3">
+                                                <i class="fa-solid fa-brain fs-4"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="card-title fw-bold mb-0">Analisis Masalah</h5>
+                                                <span class="badge bg-info text-dark">Tahap 1 &amp; 2</span>
+                                            </div>
+                                        </div>
+                                        <p class="card-text text-muted small">
+                                            Latar belakang masalah, tabel Input-Process-Output (IPO) komprehensif, batasan proyek, serta tabel penamaan variabel dan tipe data C++.
+                                        </p>
+                                        <a href="analisis-masalah.html" class="btn btn-outline-info w-100 btn-sm">
+                                            Buka Analisis Masalah &rarr;
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modul A Overview -->
+                            <div class="col-md-4">
+                                <div class="card h-100 border-primary border-2 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="bg-primary text-white p-3 rounded-circle me-3">
+                                                <i class="fa-solid fa-microchip fs-4"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="card-title fw-bold mb-0">Modul A: Proses Utama</h5>
+                                                <span class="badge bg-primary">Selesai</span>
+                                            </div>
+                                        </div>
+                                        <p class="card-text text-muted small">
+                                            Menerima data nilai dan kehadiran, validasi 0-100, kalkulasi nilai akhir berbobot, kategori A-E, dan evaluasi kelulusan multi-syarat.
+                                        </p>
+                                        <a href="modul-a.html" class="btn btn-outline-primary w-100 btn-sm">
+                                            Dokumentasi Modul A &rarr;
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modul B Overview -->
+                            <div class="col-md-4">
+                                <div class="card h-100 border-warning border-2 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="bg-warning text-dark p-3 rounded-circle me-3">
+                                                <i class="fa-solid fa-chart-pie fs-4"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="card-title fw-bold mb-0">Modul B: Rekapitulasi</h5>
+                                                <span class="badge bg-warning text-dark"><i class="fa-solid fa-clock me-1"></i>Dalam Proses (Anggota 2)</span>
+                                            </div>
+                                        </div>
+                                        <p class="card-text text-muted small">
+                                            Bagian ini diampu oleh <strong>Mahasiswa 2 (Anggota 2)</strong> untuk proses agregasi kelas (lulus/gagal, rata-rata, nilai tertinggi/terendah, dan sebaran grade).
+                                        </p>
+                                        <a href="modul-b.html" class="btn btn-outline-warning text-dark w-100 btn-sm">
+                                            Status Modul B &rarr;
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Program Integrasi Overview -->
+                            <div class="col-md-6">
+                                <div class="card h-100 border-secondary border-2 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="bg-secondary text-white p-3 rounded-circle me-3">
+                                                <i class="fa-solid fa-network-wired fs-4"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="card-title fw-bold mb-0">Program Terintegrasi</h5>
+                                                <span class="badge bg-secondary">Tahap Integrasi</span>
+                                            </div>
+                                        </div>
+                                        <p class="card-text text-muted small">
+                                            Penggabungan alur Modul A (Proses Utama) dengan Modul B (Rekapitulasi) yang akan difinalisasi bersama setelah pengerjaan Modul B selesai.
+                                        </p>
+                                        <a href="program-terintegrasi.html" class="btn btn-outline-secondary w-100 btn-sm">
+                                            Rancangan Program Integrasi &rarr;
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Refleksi & AI Overview -->
+                            <div class="col-md-6">
+                                <div class="card h-100 border-secondary border-2 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="bg-secondary text-white p-3 rounded-circle me-3">
+                                                <i class="fa-solid fa-clipboard-check fs-4"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="card-title fw-bold mb-0">Refleksi &amp; Pernyataan AI</h5>
+                                                <span class="badge bg-secondary">Tahap 6 &amp; 7</span>
+                                            </div>
+                                        </div>
+                                        <p class="card-text text-muted small">
+                                            Evaluasi pembagian kerja, bagian tersulit, rencana pengembangan ke UAS, serta transparansi pelaporan alat AI sesuai Kebijakan Bagian M.
+                                        </p>
+                                        <a href="refleksi.html" class="btn btn-outline-secondary w-100 btn-sm">
+                                            Buka Refleksi &amp; Laporan AI &rarr;
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ketentuan & Parameter Penilaian -->
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                        <h5 class="fw-bold text-dark"><i class="fa-solid fa-calculator text-info me-2"></i>Bobot Nilai</h5>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item d-flex justify-content-between"><span>Tugas</span><strong>20%</strong></li>
+                            <li class="list-group-item d-flex justify-content-between"><span>Kuis</span><strong>15%</strong></li>
+                            <li class="list-group-item d-flex justify-content-between"><span>UTS</span><strong>30%</strong></li>
+                            <li class="list-group-item d-flex justify-content-between"><span>UAS</span><strong>35%</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                        <h5 class="fw-bold text-dark"><i class="fa-solid fa-award text-warning me-2"></i>Kategori Mutu</h5>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item d-flex justify-content-between"><span>A</span><strong>85.00 - 100.00</strong></li>
+                            <li class="list-group-item d-flex justify-content-between"><span>B+ / B</span><strong>80.00 - 84.99 / 75.00 - 79.99</strong></li>
+                            <li class="list-group-item d-flex justify-content-between"><span>C+ / C</span><strong>70.00 - 74.99 / 60.00 - 69.99</strong></li>
+                            <li class="list-group-item d-flex justify-content-between"><span>D / E</span><strong>50.00 - 59.99 / &lt; 50.00</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                        <h5 class="fw-bold text-dark"><i class="fa-solid fa-circle-check text-success me-2"></i>Syarat Kelulusan</h5>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item d-flex justify-content-between"><span>Nilai Akhir Minimal</span><strong>&ge; 60.00</strong></li>
+                            <li class="list-group-item d-flex justify-content-between"><span>Nilai UAS Minimal</span><strong>&ge; 50.00</strong></li>
+                            <li class="list-group-item d-flex justify-content-between"><span>Kehadiran Minimal</span><strong>&ge; 75.00%</strong></li>
+                            <li class="list-group-item text-danger"><em>*Semua syarat wajib terpenuhi secara simultan.</em></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
 
     <!-- Footer -->
-    <footer class="py-4 bg-dark text-white text-center">
+    <footer class="py-4 bg-dark text-white text-center mt-5">
         <div class="container">
-            <p class="m-0">Copyright &copy; C++ AlgoBlog 2026 | Dibuat dengan Bootstrap 5</p>
+            <p class="m-0 mb-1 fw-bold">Proyek UTS Algoritma &amp; Pengantar Pemrograman (SSI1144)</p>
+            <p class="m-0 text-muted small">Program Studi Sistem Informasi &bull; Fakultas Teknologi dan Desain &bull; Universitas Ma Chung</p>
         </div>
     </footer>
 

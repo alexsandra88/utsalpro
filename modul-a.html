@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul A: Proses Utama - Sistem Pengolahan Nilai Mata Kuliah</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Highlight.js for Syntax Highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+    <!-- Mermaid JS for Flowchart Rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({ startOnLoad: true, theme: 'default' });</script>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fa-solid fa-graduation-cap text-primary"></i> SSI1144 Proyek UTS
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fa-solid fa-house"></i> Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="analisis-masalah.html"><i class="fa-solid fa-brain"></i> Analisis Masalah</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="modul-a.html"><i class="fa-solid fa-microchip"></i> Modul A</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="modul-b.html"><i class="fa-solid fa-chart-pie"></i> Modul B</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="program-terintegrasi.html"><i class="fa-solid fa-network-wired"></i> Program Integrasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="refleksi.html"><i class="fa-solid fa-clipboard-check"></i> Refleksi &amp; AI</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header / Hero -->
+    <header class="py-5 bg-gradient-primary text-white" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-white-50 text-decoration-none">Beranda</a></li>
+                    <li class="breadcrumb-item active text-white" aria-current="page">Modul A</li>
+                </ol>
+            </nav>
+            <span class="badge bg-warning text-dark px-3 py-2 mb-2 font-monospace fs-6">Studi Kasus 03</span>
+            <h1 class="display-5 fw-bold">Modul A: Proses Utama Pengolahan Nilai</h1>
+            <p class="lead mb-0">Input data mahasiswa, validasi nilai, perhitungan berbobot, penentuan kategori, dan evaluasi multi-kriteria kelulusan.</p>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container my-5">
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <div class="col-lg-3 mb-4">
+                <div class="card shadow-sm sticky-top" style="top: 85px; z-index: 10;">
+                    <div class="card-header bg-dark text-white fw-bold">
+                        <i class="fa-solid fa-list-ul"></i> Daftar Isi Modul A
+                    </div>
+                    <div class="list-group list-group-flush small">
+                        <a href="#identitas" class="list-group-item list-group-item-action">1. Identitas & Penanggung Jawab</a>
+                        <a href="#analisis" class="list-group-item list-group-item-action">2. Analisis & Aturan Masalah</a>
+                        <a href="#ipo" class="list-group-item list-group-item-action">3. Analisis IPO</a>
+                        <a href="#variabel" class="list-group-item list-group-item-action">4. Variabel & Tipe Data</a>
+                        <a href="#algoritma" class="list-group-item list-group-item-action">5. Algoritma Deskriptif</a>
+                        <a href="#pseudocode" class="list-group-item list-group-item-action">6. Pseudocode</a>
+                        <a href="#flowchart" class="list-group-item list-group-item-action">7. Flowchart Alur</a>
+                        <a href="#source-code" class="list-group-item list-group-item-action">8. Source Code C++ & Ulasan</a>
+                        <a href="#pengujian" class="list-group-item list-group-item-action">9. Tabel Pengujian (8 Skenario)</a>
+                        <a href="#trace-table" class="list-group-item list-group-item-action">10. Trace Table</a>
+                        <a href="#tangkapan-layar" class="list-group-item list-group-item-action">11. Hasil Eksekusi Terminal</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="col-lg-9">
+
+                <!-- 1. IDENTITAS & PENANGGUNG JAWAB -->
+                <section id="identitas" class="card shadow-sm mb-5 border-0">
+                    <div class="card-body p-4">
+                        <h3 class="fw-bold text-primary border-bottom pb-2 mb-3">
+                            <i class="fa-solid fa-user-shield me-2"></i>1. Identitas & Penanggung Jawab Modul A
+                        </h3>
+                        <div class="row g-3 align-items-center">
+                            <div class="col-md-3 text-center">
+                                <img src="https://ui-avatars.com/api/?name=Anggota+1&background=1e3c72&color=fff&size=128" 
+                                     alt="Foto Penanggung Jawab" class="rounded-circle img-thumbnail shadow-sm mb-2" width="110">
+                            </div>
+                            <div class="col-md-9">
+                                <table class="table table-sm table-borderless mb-0">
+                                    <tr>
+                                        <td class="fw-bold" style="width: 200px;">Penanggung Jawab Modul A</td>
+                                        <td>: <strong>Alexsandra Diva Sumendap)</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">NIM</td>
+                                        <td>: <strong>322610001</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Fokus Modul</td>
+                                        <td>: Logika pemrosesan individual, sanitasi & validasi input, kalkulasi nilai akhir berbobot, penentuan kategori, dan evaluasi syarat kelulusan.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Bahasa Pemrograman</td>
+                                        <td>: <span class="badge bg-info text-dark">C++ (Standard Console)</span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. ANALISIS MASALAH -->
+                <section id="analisis" class="card shadow-sm mb-5 border-0">
+                    <div class="card-body p-4">
+                        <h3 class="fw-bold text-primary border-bottom pb-2 mb-3">
+                            <i class="fa-solid fa-magnifying-glass-chart me-2"></i>2. Analisis Masalah & Ketentuan Modul A
+                        </h3>
+                        <p class="text-muted">
+                            Dosen membutuhkan sistem otomatis berbasis konsol untuk mengolah data nilai mahasiswa. Modul A bertanggung jawab memproses setiap data individu secara terperinci sebelum diteruskan ke rekapitulasi Modul B.
+                        </p>
+                        <h5 class="fw-bold text-dark mt-4">Ketentuan Perhitungan & Aturan Bisnis:</h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="p-3 bg-light rounded border h-100">
+                                    <h6 class="fw-bold text-primary"><i class="fa-solid fa-percent me-1"></i> Komposisi Bobot Nilai:</h6>
+                                    <ul class="mb-0">
+                                        <li>Nilai Tugas: <strong>20% (0.20)</strong></li>
+                                        <li>Nilai Kuis: <strong>15% (0.15)</strong></li>
+                                        <li>Nilai UTS: <strong>30% (0.30)</strong></li>
+                                        <li>Nilai UAS: <strong>35% (0.35)</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-3 bg-light rounded border h-100">
+                                    <h6 class="fw-bold text-success"><i class="fa-solid fa-check-double me-1"></i> Syarat Kelulusan (Multi-Kriteria):</h6>
+                                    <p class="small mb-1">Mahasiswa dinyatakan <strong>LULUS</strong> jika dan hanya jika <u>ketiga</u> syarat berikut terpenuhi:</p>
+                                    <ol class="small mb-0">
+                                        <li>Nilai Akhir &ge; <strong>60.00</strong></li>
+                                        <li>Nilai UAS &ge; <strong>50.00</strong></li>
+                                        <li>Persentase Kehadiran &ge; <strong>75.00%</strong></li>
+                                    </ol>
+                                    <p class="small text-danger mt-1 mb-0"><em>*Jika salah satu syarat gagal, otomatis TIDAK LULUS.</em></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold text-dark mt-4">Skala Kategori Huruf Mutu:</h5>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-sm text-center align-middle">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Rentang Nilai Akhir</th>
+                                        <th>Kategori Huruf</th>
+                                        <th>Keterangan Kualitatif</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>85.00 - 100.00</td><td><span class="badge bg-success">A</span></td><td>Istimewa / Sangat Baik</td></tr>
+                                    <tr><td>80.00 - 84.99</td><td><span class="badge bg-primary">B+</span></td><td>Baik Sekali</td></tr>
+                                    <tr><td>75.00 - 79.99</td><td><span class="badge bg-info text-dark">B</span></td><td>Baik</td></tr>
+                                    <tr><td>70.00 - 74.99</td><td><span class="badge bg-secondary">C+</span></td><td>Cukup Baik</td></tr>
+                                    <tr><td>60.00 - 69.99</td><td><span class="badge bg-warning text-dark">C</span></td><td>Cukup (Batas Minimal Kelulusan Nilai)</td></tr>
+                                    <tr><td>50.00 - 59.99</td><td><span class="badge bg-danger">D</span></td><td>Kurang</td></tr>
+                                    <tr><td>&lt; 50.00</td><td><span class="badge bg-dark">E</span></td><td>Gagal</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. INPUT-PROCESS-OUTPUT (IPO) -->
+                <section id="ipo" class="card shadow-sm mb-5 border-0">
+                    <div class="card-body p-4">
+                        <h3 class="fw-bold text-primary border-bottom pb-2 mb-3">
+                            <i class="fa-solid fa-arrows-split-up-and-left me-2"></i>3. Analisis Input-Process-Output (IPO)
+                        </h3>
+                        <div class="table-responsive">
+                            <table class="table table-bordered align-top">
+                                <thead class="table-primary">
+                                    <tr>
+                                        <th style="width: 30%;">Input (Masukan)</th>
+                                        <th style="width: 40%;">Process (Pemrosesan)</th>
+                                        <th style="width: 30%;">Output (Keluaran)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <ul>
+                                                <li><strong>namaMahasiswa</strong> (Teks)</li>
+                                                <li><strong>nimMahasiswa</strong> (Teks)</li>
+                                                <li><strong>nilaiTugas</strong> (Numerik, 0 - 100)</li>
+                                                <li><strong>nilaiKuis</strong> (Numerik, 0 - 100)</li>
+                                                <li><strong>nilaiUTS</strong> (Numerik, 0 - 100)</li>
+                                                <li><strong>nilaiUAS</strong> (Numerik, 0 - 100)</li>
+                                                <li><strong>persentaseKehadiran</strong> (Numerik, 0 - 100%)</li>
+                                                <li><strong>pilihanUlang</strong> ('y' / 't')</li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <ol class="ps-3 mb-0">
+                                                <li><strong>Validasi Input:</strong> Memeriksa apakah nilai berada di rentang 0 - 100 dan bukan karakter non-numerik. Jika salah, loop pengulangan input dilakukan.</li>
+                                                <li><strong>Perhitungan Kontribusi Berbobot:</strong>
+                                                    <br>&bull; Tugas = <code>nilaiTugas * 0.20</code>
+                                                    <br>&bull; Kuis = <code>nilaiKuis * 0.15</code>
+                                                    <br>&bull; UTS = <code>nilaiUTS * 0.30</code>
+                                                    <br>&bull; UAS = <code>nilaiUAS * 0.35</code>
+                                                </li>
+                                                <li><strong>Kalkulasi Nilai Akhir:</strong>
+                                                    <br><code>Nilai Akhir = Tugas + Kuis + UTS + UAS</code>
+                                                </li>
+                                                <li><strong>Percabangan Kategori:</strong> Mengevaluasi rentang nilai akhir dari A hingga E.</li>
+                                                <li><strong>Evaluasi Kelulusan:</strong> Cek kondisi majemuk <code>(Nilai Akhir &ge; 60 AND Nilai UAS &ge; 50 AND Kehadiran &ge; 75)</code>.</li>
+                                            </ol>
+                                        </td>
+                                        <td>
+                                            <ul>
+                                                <li>Nama & NIM Mahasiswa</li>
+                                                <li>Rincian nilai mentah & kontribusi berbobot setiap komponen</li>
+                                                <li>Persentase kehadiran</li>
+                                                <li>Nilai Akhir (presisi 2 desimal)</li>
+                                                <li>Kategori Nilai Huruf (A - E)</li>
+                                                <li>Status Kelulusan (LULUS / TIDAK LULUS)</li>
+                                                <li>Catatan rincian penyebab jika tidak lulus</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. VARIABEL DAN TIPE DATA -->
+                <section id="variabel" class="card shadow-sm mb-5 border-0">
+                    <div class="card-body p-4">
+                        <h3 class="fw-bold text-primary border-bottom pb-2 mb-3">
+                            <i class="fa-solid fa-table me-2"></i>4. Variabel dan Tipe Data
+                        </h3>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover table-bordered small">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Nama Variabel</th>
+                                        <th>Tipe Data</th>
+                                        <th>Nilai Awal</th>
+                                        <th>Deskripsi & Kegunaan</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>namaMahasiswa</code></td>
+                                        <td><code>string</code></td>
+                                        <td><em>kosong</em></td>
+                                        <td>Menyimpan nama lengkap mahasiswa yang diproses.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>nimMahasiswa</code></td>
+                                        <td><code>string</code></td>
+                                        <td><em>kosong</em></td>
+                                        <td>Menyimpan Nomor Induk Mahasiswa.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>nilaiTugas</code></td>
+                                        <td><code>double</code></td>
+                                        <td>0.0</td>
+                                        <td>Menyimpan nilai tugas mahasiswa (skala 0 - 100).</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>nilaiKuis</code></td>
+                                        <td><code>double</code></td>
+                                        <td>0.0</td>
+                                        <td>Menyimpan nilai kuis mahasiswa (skala 0 - 100).</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>nilaiUTS</code></td>
+                                        <td><code>double</code></td>
+                                        <td>0.0</td>
+                                        <td>Menyimpan nilai Ujian Tengah Semester (skala 0 - 100).</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>nilaiUAS</code></td>
+                                        <td><code>double</code></td>
+                                        <td>0.0</td>
+                                        <td>Menyimpan nilai Ujian Akhir Semester (skala 0 - 100).</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>persentaseKehadiran</code></td>
+                                        <td><code>double</code></td>
+                                        <td>0.0</td>
+                                        <td>Menyimpan persentase kehadiran mahasiswa (0 - 100%).</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>kontribusiTugas</code></td>
+                                        <td><code>double</code></td>
+                                        <td>0.0</td>
+                                        <td>Menyimpan hasil perhitungan <code>nilaiTugas * 0.20</code>.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>kontribusiKuis</code></td>
+                                        <td><code>double</code></td>
+                                        <td>0.0</td>
+                                        <td>Menyimpan hasil perhitungan <code>nilaiKuis * 0.15</code>.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>kontribusiUTS</code></td>
+                                        <td><code>double</code></td>
+                                        <td>0.0</td>
+                                        <td>Menyimpan hasil perhitungan <code>nilaiUTS * 0.30</code>.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>kontribusiUAS</code></td>
+                                        <td><code>double</code></td>
+                                        <td>0.0</td>
+                                        <td>Menyimpan hasil perhitungan <code>nilaiUAS * 0.35</code>.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>nilaiAkhir</code></td>
+                                        <td><code>double</code></td>
+                                        <td>0.0</td>
+                                        <td>Akumulasi total nilai berbobot.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>kategoriNilai</code></td>
+                                        <td><code>string</code></td>
+                                        <td><em>kosong</em></td>
+                                        <td>Menyimpan huruf mutu kualitatif (A, B+, B, C+, C, D, E).</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>statusKelulusan</code></td>
+                                        <td><code>string</code></td>
+                                        <td><em>kosong</em></td>
+                                        <td>Menyimpan status final: "LULUS" atau "TIDAK LULUS".</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>catatanKelulusan</code></td>
+                                        <td><code>string</code></td>
+                                        <td><em>kosong</em></td>
+                                        <td>Menyimpan keterangan rincian alasan kelulusan/kegagalan.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>pilihanUlang</code></td>
+                                        <td><code>char</code></td>
+                                        <td>'t'</td>
+                                        <td>Menyimpan jawaban perulangan transaksi ('y' / 't').</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5. ALGORITMA DESKRIPTIF -->
+                <section id="algoritma" class="card shadow-sm mb-5 border-0">
+                    <div class="card-body p-4">
+                        <h3 class="fw-bold text-primary border-bottom pb-2 mb-3">
+                            <i class="fa-solid fa-list-ol me-2"></i>5. Algoritma Deskriptif
+                        </h3>
+                        <ol class="lh-lg">
+                            <li><strong>Mulai Program:</strong> Menampilkan judul aplikasi pengolahan nilai mata kuliah.</li>
+                            <li><strong>Inisialisasi Perulangan:</strong> Memulai blok perulangan <code>do-while</code> untuk mengolah data mahasiswa secara berulang.</li>
+                            <li><strong>Input Identitas:</strong> Membaca masukan nama lengkap mahasiswa dan NIM.</li>
+                            <li><strong>Input & Validasi Nilai Tugas:</strong> 
+                                <ul>
+                                    <li>Membaca nilai tugas.</li>
+                                    <li>Jika nilai bukan angka atau nilainya di luar rentang 0 s.d. 100, tampilkan pesan galat dan ulangi input nilai tugas hingga valid.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Input & Validasi Nilai Kuis:</strong> Membaca nilai kuis dengan validasi rentang 0 s.d. 100.</li>
+                            <li><strong>Input & Validasi Nilai UTS:</strong> Membaca nilai UTS dengan validasi rentang 0 s.d. 100.</li>
+                            <li><strong>Input & Validasi Nilai UAS:</strong> Membaca nilai UAS dengan validasi rentang 0 s.d. 100.</li>
+                            <li><strong>Input & Validasi Kehadiran:</strong> Membaca persentase kehadiran dengan validasi rentang 0 s.d. 100%.</li>
+                            <li><strong>Perhitungan Nilai Akhir:</strong>
+                                <ul>
+                                    <li>Hitung kontribusi tugas = <code>nilaiTugas &times; 0.20</code></li>
+                                    <li>Hitung kontribusi kuis = <code>nilaiKuis &times; 0.15</code></li>
+                                    <li>Hitung kontribusi UTS = <code>nilaiUTS &times; 0.30</code></li>
+                                    <li>Hitung kontribusi UAS = <code>nilaiUAS &times; 0.35</code></li>
+                                    <li>Hitung nilai akhir = jumlah keempat kontribusi di atas.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Penentuan Kategori Nilai:</strong>
+                                <ul>
+                                    <li>Jika <code>nilaiAkhir &ge; 85.0</code> maka kategori = "A".</li>
+                                    <li>Jika <code>nilaiAkhir &ge; 80.0</code> maka kategori = "B+".</li>
+                                    <li>Jika <code>nilaiAkhir &ge; 75.0</code> maka kategori = "B".</li>
+                                    <li>Jika <code>nilaiAkhir &ge; 70.0</code> maka kategori = "C+".</li>
+                                    <li>Jika <code>nilaiAkhir &ge; 60.0</code> maka kategori = "C".</li>
+                                    <li>Jika <code>nilaiAkhir &ge; 50.0</code> maka kategori = "D".</li>
+                                    <li>Selainnya (nilai &lt; 50.0), maka kategori = "E".</li>
+                                </ul>
+                            </li>
+                            <li><strong>Evaluasi Kelulusan:</strong>
+                                <ul>
+                                    <li>Jika <code>(nilaiAkhir &ge; 60.0) DAN (nilaiUAS &ge; 50.0) DAN (persentaseKehadiran &ge; 75.0)</code> maka status = "LULUS".</li>
+                                    <li>Jika salah satu syarat atau lebih tidak terpenuhi, maka status = "TIDAK LULUS", lalu sertakan catatan syarat mana yang belum tercapai.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Tampilkan Rincian Hasil:</strong> Mencetak laporan individual yang memuat seluruh identitas, rincian bobot per komponen, nilai akhir, kategori, dan status kelulusan.</li>
+                            <li><strong>Konfirmasi Pengulangan:</strong> Meminta konfirmasi apakah pengguna ingin menginput data mahasiswa lain ('y'/'t'). Jika 'y', ulangi langkah 3. Jika 't', lanjutkan.</li>
+                            <li><strong>Selesai:</strong> Menampilkan pesan terima kasih dan program berakhir dengan sukses.</li>
+                        </ol>
+                    </div>
+                </section>
+
+                <!-- 6. PSEUDOCODE -->
+                <section id="pseudocode" class="card shadow-sm mb-5 border-0">
+                    <div class="card-body p-4">
+                        <h3 class="fw-bold text-primary border-bottom pb-2 mb-3">
+                            <i class="fa-solid fa-code me-2"></i>6. Pseudocode Modul A
+                        </h3>
+<pre><code class="language-plaintext">ALGORITMA PengolahanNilaiMahasiswa_ModulA
+DEKLARASI:
+    namaMahasiswa, nimMahasiswa : STRING
+    nilaiTugas, nilaiKuis, nilaiUTS, nilaiUAS : REAL
+    persentaseKehadiran : REAL
+    kontribusiTugas, kontribusiKuis, kontribusiUTS, kontribusiUAS : REAL
+    nilaiAkhir : REAL
+    kategoriNilai, statusKelulusan, catatanKelulusan : STRING
+    pilihanUlang : CHAR
+
+DESKRIPSI:
+    OUTPUT("=== SISTEM PENGOLAHAN NILAI MATA KULIAH - MODUL A ===")
+    
+    REPEAT
+        OUTPUT("Masukkan Nama Mahasiswa : ")
+        INPUT(namaMahasiswa)
+        OUTPUT("Masukkan NIM Mahasiswa : ")
+        INPUT(nimMahasiswa)
+
+        // Validasi Nilai Tugas (0 - 100)
+        REPEAT
+            OUTPUT("Masukkan Nilai Tugas (0 - 100): ")
+            INPUT(nilaiTugas)
+            IF (nilaiTugas < 0 OR nilaiTugas > 100) THEN
+                OUTPUT("[ERROR] Nilai Tugas harus di antara 0 sampai 100!")
+            ENDIF
+        UNTIL (nilaiTugas >= 0 AND nilaiTugas <= 100)
+
+        // Validasi Nilai Kuis (0 - 100)
+        REPEAT
+            OUTPUT("Masukkan Nilai Kuis (0 - 100): ")
+            INPUT(nilaiKuis)
+            IF (nilaiKuis < 0 OR nilaiKuis > 100) THEN
+                OUTPUT("[ERROR] Nilai Kuis harus di antara 0 sampai 100!")
+            ENDIF
+        UNTIL (nilaiKuis >= 0 AND nilaiKuis <= 100)
+
+        // Validasi Nilai UTS (0 - 100)
+        REPEAT
+            OUTPUT("Masukkan Nilai UTS (0 - 100): ")
+            INPUT(nilaiUTS)
+            IF (nilaiUTS < 0 OR nilaiUTS > 100) THEN
+                OUTPUT("[ERROR] Nilai UTS harus di antara 0 sampai 100!")
+            ENDIF
+        UNTIL (nilaiUTS >= 0 AND nilaiUTS <= 100)
+
+        // Validasi Nilai UAS (0 - 100)
+        REPEAT
+            OUTPUT("Masukkan Nilai UAS (0 - 100): ")
+            INPUT(nilaiUAS)
+            IF (nilaiUAS < 0 OR nilaiUAS > 100) THEN
+                OUTPUT("[ERROR] Nilai UAS harus di antara 0 sampai 100!")
+            ENDIF
+        UNTIL (nilaiUAS >= 0 AND nilaiUAS <= 100)
+
+        // Validasi Kehadiran (0 - 100%)
+        REPEAT
+            OUTPUT("Masukkan Kehadiran (%) (0 - 100): ")
+            INPUT(persentaseKehadiran)
+            IF (persentaseKehadiran < 0 OR persentaseKehadiran > 100) THEN
+                OUTPUT("[ERROR] Kehadiran harus di antara 0 sampai 100%!")
+            ENDIF
+        UNTIL (persentaseKehadiran >= 0 AND persentaseKehadiran <= 100)
+
+        // Perhitungan Komponen Berbobot
+        kontribusiTugas  <- nilaiTugas * 0.20
+        kontribusiKuis   <- nilaiKuis * 0.15
+        kontribusiUTS    <- nilaiUTS * 0.30
+        kontribusiUAS    <- nilaiUAS * 0.35
+        nilaiAkhir       <- kontribusiTugas + kontribusiKuis + kontribusiUTS + kontribusiUAS
+
+        // Penentuan Kategori Huruf
+        IF (nilaiAkhir >= 85.0) THEN
+            kategoriNilai <- "A"
+        ELSE IF (nilaiAkhir >= 80.0) THEN
+            kategoriNilai <- "B+"
+        ELSE IF (nilaiAkhir >= 75.0) THEN
+            kategoriNilai <- "B"
+        ELSE IF (nilaiAkhir >= 70.0) THEN
+            kategoriNilai <- "C+"
+        ELSE IF (nilaiAkhir >= 60.0) THEN
+            kategoriNilai <- "C"
+        ELSE IF (nilaiAkhir >= 50.0) THEN
+            kategoriNilai <- "D"
+        ELSE
+            kategoriNilai <- "E"
+        ENDIF
+
+        // Evaluasi Syarat Kelulusan
+        catatanKelulusan <- ""
+        IF (nilaiAkhir >= 60.0 AND nilaiUAS >= 50.0 AND persentaseKehadiran >= 75.0) THEN
+            statusKelulusan <- "LULUS"
+            catatanKelulusan <- "Memenuhi seluruh persyaratan kelulusan."
+        ELSE
+            statusKelulusan <- "TIDAK LULUS"
+            IF (nilaiAkhir < 60.0) THEN
+                catatanKelulusan <- catatanKelulusan + "[Nilai Akhir < 60] "
+            ENDIF
+            IF (nilaiUAS < 50.0) THEN
+                catatanKelulusan <- catatanKelulusan + "[Nilai UAS < 50] "
+            ENDIF
+            IF (persentaseKehadiran < 75.0) THEN
+                catatanKelulusan <- catatanKelulusan + "[Kehadiran < 75%] "
+            ENDIF
+        ENDIF
+
+        // Menampilkan Output Rincian
+        OUTPUT("=== RINCIAN HASIL PENILAIAN INDIVIDUAL ===")
+        OUTPUT("Nama Mahasiswa : ", namaMahasiswa)
+        OUTPUT("NIM            : ", nimMahasiswa)
+        OUTPUT("Nilai Tugas    : ", nilaiTugas, " (Bobot 20% -> Kontribusi: ", kontribusiTugas, ")")
+        OUTPUT("Nilai Kuis     : ", nilaiKuis, " (Bobot 15% -> Kontribusi: ", kontribusiKuis, ")")
+        OUTPUT("Nilai UTS      : ", nilaiUTS, " (Bobot 30% -> Kontribusi: ", kontribusiUTS, ")")
+        OUTPUT("Nilai UAS      : ", nilaiUAS, " (Bobot 35% -> Kontribusi: ", kontribusiUAS, ")")
+        OUTPUT("Kehadiran      : ", persentaseKehadiran, " %")
+        OUTPUT("Nilai Akhir    : ", nilaiAkhir)
+        OUTPUT("Kategori Nilai : ", kategoriNilai)
+        OUTPUT("Status Hasil   : ", statusKelulusan)
+        OUTPUT("Keterangan     : ", catatanKelulusan)
+
+        // Konfirmasi Pengulangan
+        REPEAT
+            OUTPUT("Apakah ingin memproses mahasiswa lain? (y/t): ")
+            INPUT(pilihanUlang)
+        UNTIL (pilihanUlang = 'y' OR pilihanUlang = 'Y' OR pilihanUlang = 't' OR pilihanUlang = 'T')
+
+    UNTIL (pilihanUlang = 't' OR pilihanUlang = 'T')
+
+    OUTPUT("=== PROGRAM SELESAI ===")
+SELESAI
+</code></pre>
+                    </div>
+                </section>
+
+                <!-- 7. FLOWCHART -->
+                <section id="flowchart" class="card shadow-sm mb-5 border-0">
+                    <div class="card-body p-4">
+                        <h3 class="fw-bold text-primary border-bottom pb-2 mb-3">
+                            <i class="fa-solid fa-diagram-project me-2"></i>7. Flowchart Alur Modul A
+                        </h3>
+                        <p class="text-muted">Diagram alur visual di bawah ini menggambarkan alur kontrol program Modul A, termasuk validasi input, percabangan perhitungan, dan penentuan kelulusan.</p>
+                        
+                        <div class="p-4 bg-light rounded text-center border overflow-auto">
+                            <div class="mermaid">
+flowchart TD
+    Start([Mulai]) --> InInit[/Input Nama, NIM/]
+    InInit --> InTugas[/Input Nilai Tugas/]
+    InTugas --> ValTugas{0 <= Tugas <= 100?}
+    ValTugas -- Tidak --> ErrTugas[/Tampilkan Pesan Error/] --> InTugas
+    ValTugas -- Ya --> InKuis[/Input Nilai Kuis/]
+    
+    InKuis --> ValKuis{0 <= Kuis <= 100?}
+    ValKuis -- Tidak --> ErrKuis[/Tampilkan Pesan Error/] --> InKuis
+    ValKuis -- Ya --> InUTS[/Input Nilai UTS/]
+
+    InUTS --> ValUTS{0 <= UTS <= 100?}
+    ValUTS -- Tidak --> ErrUTS[/Tampilkan Pesan Error/] --> InUTS
+    ValUTS -- Ya --> InUAS[/Input Nilai UAS/]
+
+    InUAS --> ValUAS{0 <= UAS <= 100?}
+    ValUAS -- Tidak --> ErrUAS[/Tampilkan Pesan Error/] --> InUAS
+    ValUAS -- Ya --> InHadir[/Input Persentase Kehadiran/]
+
+    InHadir --> ValHadir{0 <= Hadir <= 100?}
+    ValHadir -- Tidak --> ErrHadir[/Tampilkan Pesan Error/] --> InHadir
+    ValHadir -- Ya --> Calc["Hitung Nilai Akhir:<br>0.2*Tugas + 0.15*Kuis + 0.3*UTS + 0.35*UAS"]
+
+    Calc --> CatA{Nilai Akhir >= 85?}
+    CatA -- Ya --> SetA["Kategori = 'A'"] --> CheckPass
+    CatA -- Tidak --> CatBPlus{Nilai Akhir >= 80?}
+    CatBPlus -- Ya --> SetBPlus["Kategori = 'B+'"] --> CheckPass
+    CatBPlus -- Tidak --> CatB{Nilai Akhir >= 75?}
+    CatB -- Ya --> SetB["Kategori = 'B'"] --> CheckPass
+    CatB -- Tidak --> CatCPlus{Nilai Akhir >= 70?}
+    CatCPlus -- Ya --> SetCPlus["Kategori = 'C+'"] --> CheckPass
+    CatCPlus -- Tidak --> CatC{Nilai Akhir >= 60?}
+    CatC -- Ya --> SetC["Kategori = 'C'"] --> CheckPass
+    CatC -- Tidak --> CatD{Nilai Akhir >= 50?}
+    CatD -- Ya --> SetD["Kategori = 'D'"] --> CheckPass
+    CatD -- Tidak --> SetE["Kategori = 'E'"] --> CheckPass
+
+    CheckPass{"Nilai Akhir >= 60<br>DAN UAS >= 50<br>DAN Hadir >= 75%?"}
+    CheckPass -- Ya --> SetLulus["Status = 'LULUS'<br>Catatan: Memenuhi seluruh syarat"]
+    CheckPass -- Tidak --> SetGagal["Status = 'TIDAK LULUS'<br>Catatan: Rincian syarat belum terpenuhi"]
+
+    SetLulus --> OutResult[/Tampilkan Rincian Hasil & Status/]
+    SetGagal --> OutResult
+
+    OutResult --> PromptLoop[/Tanya: Ingin proses data lagi? y/t/]
+    PromptLoop --> DecisionLoop{Pilihan == 'y' atau 'Y'?}
+    DecisionLoop -- Ya --> InInit
+    DecisionLoop -- Tidak --> End([Selesai])
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 8. SOURCE CODE & PENJELASAN -->
+                <section id="source-code" class="card shadow-sm mb-5 border-0">
+                    <div class="card-body p-4">
+                        <h3 class="fw-bold text-primary border-bottom pb-2 mb-3">
+                            <i class="fa-solid fa-file-code me-2"></i>8. Source Code C++ & Penjelasan
+                        </h3>
+                        <p>File source code tersimpan secara lokal pada <code>modul_a.cpp</code>. Berikut adalah implementasi lengkap program C++:</p>
+
+<pre><code class="language-cpp">/**
+ * PROYEK UTS ALGORITMA DAN PENGANTAR PEMROGRAMAN (SSI1144)
+ * STUDI KASUS 03 : Sistem Pengolahan Nilai Mata Kuliah
+ * MODUL A        : Proses Utama (Input, Validasi, Perhitungan, Kategori, Kelulusan)
+ */
+
+#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main() {
+    // Deklarasi Variabel
+    string namaMahasiswa, nimMahasiswa;
+    double nilaiTugas, nilaiKuis, nilaiUTS, nilaiUAS, persentaseKehadiran;
+    double kontribusiTugas, kontribusiKuis, kontribusiUTS, kontribusiUAS, nilaiAkhir;
+    string kategoriNilai, statusKelulusan, catatanKelulusan;
+    char pilihanUlang;
+
+    cout << "========================================================\n";
+    cout << "      SISTEM PENGOLAHAN NILAI MATA KULIAH - MODUL A    \n";
+    cout << "             PROYEK UTS ALGORITMA (SSI1144)            \n";
+    cout << "========================================================\n\n";
+
+    do {
+        cout << "--------------------------------------------------------\n";
+        cout << "               MASUKKAN DATA MAHASISWA                  \n";
+        cout << "--------------------------------------------------------\n";
+
+        cout << "Masukkan Nama Mahasiswa : ";
+        getline(cin >> ws, namaMahasiswa);
+
+        cout << "Masukkan NIM Mahasiswa  : ";
+        getline(cin, nimMahasiswa);
+
+        // Validasi Nilai Tugas (0 - 100)
+        do {
+            cout << "Masukkan Nilai Tugas (0 - 100) : ";
+            if (!(cin >> nilaiTugas)) {
+                cout << "[ERROR] Input harus berupa angka numerik!\n";
+                cin.clear();
+                cin.ignore(1000, '\n');
+                nilaiTugas = -1;
+                continue;
+            }
+            if (nilaiTugas < 0 || nilaiTugas > 100) {
+                cout << "[ERROR] Nilai tugas tidak valid! Harus dalam rentang 0 - 100.\n";
+            }
+        } while (nilaiTugas < 0 || nilaiTugas > 100);
+
+        // Validasi Nilai Kuis (0 - 100)
+        do {
+            cout << "Masukkan Nilai Kuis (0 - 100)  : ";
+            if (!(cin >> nilaiKuis)) {
+                cout << "[ERROR] Input harus berupa angka numerik!\n";
+                cin.clear();
+                cin.ignore(1000, '\n');
+                nilaiKuis = -1;
+                continue;
+            }
+            if (nilaiKuis < 0 || nilaiKuis > 100) {
+                cout << "[ERROR] Nilai kuis tidak valid! Harus dalam rentang 0 - 100.\n";
+            }
+        } while (nilaiKuis < 0 || nilaiKuis > 100);
+
+        // Validasi Nilai UTS (0 - 100)
+        do {
+            cout << "Masukkan Nilai UTS (0 - 100)   : ";
+            if (!(cin >> nilaiUTS)) {
+                cout << "[ERROR] Input harus berupa angka numerik!\n";
+                cin.clear();
+                cin.ignore(1000, '\n');
+                nilaiUTS = -1;
+                continue;
+            }
+            if (nilaiUTS < 0 || nilaiUTS > 100) {
+                cout << "[ERROR] Nilai UTS tidak valid! Harus dalam rentang 0 - 100.\n";
+            }
+        } while (nilaiUTS < 0 || nilaiUTS > 100);
+
+        // Validasi Nilai UAS (0 - 100)
+        do {
+            cout << "Masukkan Nilai UAS (0 - 100)   : ";
+            if (!(cin >> nilaiUAS)) {
+                cout << "[ERROR] Input harus berupa angka numerik!\n";
+                cin.clear();
+                cin.ignore(1000, '\n');
+                nilaiUAS = -1;
+                continue;
+            }
+            if (nilaiUAS < 0 || nilaiUAS > 100) {
+                cout << "[ERROR] Nilai UAS tidak valid! Harus dalam rentang 0 - 100.\n";
+            }
+        } while (nilaiUAS < 0 || nilaiUAS > 100);
+
+        // Validasi Kehadiran (0 - 100%)
+        do {
+            cout << "Masukkan Kehadiran (%) (0-100) : ";
+            if (!(cin >> persentaseKehadiran)) {
+                cout << "[ERROR] Input harus berupa angka numerik!\n";
+                cin.clear();
+                cin.ignore(1000, '\n');
+                persentaseKehadiran = -1;
+                continue;
+            }
+            if (persentaseKehadiran < 0 || persentaseKehadiran > 100) {
+                cout << "[ERROR] Kehadiran tidak valid! Harus dalam rentang 0 - 100%.\n";
+            }
+        } while (persentaseKehadiran < 0 || persentaseKehadiran > 100);
+
+        // Perhitungan Bobot
+        kontribusiTugas = nilaiTugas * 0.20;
+        kontribusiKuis  = nilaiKuis * 0.15;
+        kontribusiUTS   = nilaiUTS * 0.30;
+        kontribusiUAS   = nilaiUAS * 0.35;
+        nilaiAkhir      = kontribusiTugas + kontribusiKuis + kontribusiUTS + kontribusiUAS;
+
+        // Penentuan Kategori Nilai
+        if (nilaiAkhir >= 85.0) {
+            kategoriNilai = "A";
+        } else if (nilaiAkhir >= 80.0) {
+            kategoriNilai = "B+";
+        } else if (nilaiAkhir >= 75.0) {
+            kategoriNilai = "B";
+        } else if (nilaiAkhir >= 70.0) {
+            kategoriNilai = "C+";
+        } else if (nilaiAkhir >= 60.0) {
+            kategoriNilai = "C";
+        } else if (nilaiAkhir >= 50.0) {
+            kategoriNilai = "D";
+        } else {
+            kategoriNilai = "E";
+        }
+
+        // Penentuan Kelulusan (Multi-Syarat)
+        catatanKelulusan = "";
+        if (nilaiAkhir >= 60.0 && nilaiUAS >= 50.0 && persentaseKehadiran >= 75.0) {
+            statusKelulusan = "LULUS";
+            catatanKelulusan = "Memenuhi seluruh persyaratan kelulusan.";
+        } else {
+            statusKelulusan = "TIDAK LULUS";
+            if (nilaiAkhir < 60.0) {
+                catatanKelulusan += "[Nilai Akhir < 60] ";
+            }
+            if (nilaiUAS < 50.0) {
+                catatanKelulusan += "[Nilai UAS < 50] ";
+            }
+            if (persentaseKehadiran < 75.0) {
+                catatanKelulusan += "[Kehadiran < 75%] ";
+            }
+        }
+
+        // Tampilkan Output Rincian
+        cout << "\n========================================================\n";
+        cout << "             RINCIAN HASIL PENILAIAN INDIVIDUAL         \n";
+        cout << "========================================================\n";
+        cout << left << setw(22) << "Nama Mahasiswa" << ": " << namaMahasiswa << "\n";
+        cout << left << setw(22) << "NIM"            << ": " << nimMahasiswa << "\n";
+        cout << "--------------------------------------------------------\n";
+        cout << fixed << setprecision(2);
+        cout << left << setw(15) << "Komponen" << setw(12) << "Nilai Mentah" << setw(10) << "Bobot" << "Kontribusi\n";
+        cout << "--------------------------------------------------------\n";
+        cout << left << setw(15) << "Tugas"    << setw(12) << nilaiTugas    << setw(10) << "20%"    << kontribusiTugas << "\n";
+        cout << left << setw(15) << "Kuis"     << setw(12) << nilaiKuis     << setw(10) << "15%"    << kontribusiKuis  << "\n";
+        cout << left << setw(15) << "UTS"      << setw(12) << nilaiUTS      << setw(10) << "30%"    << kontribusiUTS   << "\n";
+        cout << left << setw(15) << "UAS"      << setw(12) << nilaiUAS      << setw(10) << "35%"    << kontribusiUAS   << "\n";
+        cout << "--------------------------------------------------------\n";
+        cout << left << setw(22) << "Kehadiran"      << ": " << persentaseKehadiran << " %\n";
+        cout << left << setw(22) << "Nilai Akhir"    << ": " << nilaiAkhir << "\n";
+        cout << left << setw(22) << "Kategori Nilai" << ": " << kategoriNilai << "\n";
+        cout << left << setw(22) << "Status Hasil"   << ": " << statusKelulusan << "\n";
+        cout << left << setw(22) << "Keterangan"     << ": " << catatanKelulusan << "\n";
+        cout << "========================================================\n\n";
+
+        // Konfirmasi Pengulangan
+        do {
+            cout << "Apakah Anda ingin memasukkan data mahasiswa lain? (y/t): ";
+            cin >> pilihanUlang;
+            if (pilihanUlang != 'y' && pilihanUlang != 'Y' && pilihanUlang != 't' && pilihanUlang != 'T') {
+                cout << "[ERROR] Pilihan tidak valid! Masukkan 'y' atau 't'.\n";
+            }
+        } while (pilihanUlang != 'y' && pilihanUlang != 'Y' && pilihanUlang != 't' && pilihanUlang != 'T');
+
+        cout << "\n";
+
+    } while (pilihanUlang == 'y' || pilihanUlang == 'Y');
+
+    cout << "========================================================\n";
+    cout << "    PROGRAM SELESAI. TERIMA KASIH TELAH MENGGUNAKAN.    \n";
+    cout << "========================================================\n";
+
+    return 0;
+}
+</code></pre>
+
+                        <h5 class="fw-bold mt-4">Penjelasan Arsitektur Kode:</h5>
+                        <ul class="lh-lg">
+                            <li><strong>Sanitasi Buffer Input:</strong> Menggunakan <code>getline(cin >> ws, namaMahasiswa)</code> agar pembacaan nama lengkap ber-spasi berjalan bersih tanpa gangguan sisa karakter enter / newline dari input sebelumnya.</li>
+                            <li><strong>Penanganan Input Non-Numerik (Anti-Crash):</strong> Blok <code>if (!(cin >> nilai))</code> digunakan untuk mendeteksi apabila pengguna sengaja atau tidak sengaja memasukkan huruf/karakter saat diminta nilai angka. Fungsi <code>cin.clear()</code> dan <code>cin.ignore()</code> membersihkan stream sehingga program tidak mengalami <em>infinite loop</em> atau <em>crash</em> tak wajar (memenuhi Batasan E.8).</li>
+                            <li><strong>Penerapan Format Output:</strong> Menggunakan pustaka <code>&lt;iomanip&gt;</code> dengan fungsi <code>fixed</code> dan <code>setprecision(2)</code> untuk memastikan angka desimal ditampilkan seragam dengan 2 angka di belakang koma.</li>
+                            <li><strong>Keterangan Diagnostik:</strong> Saat mahasiswa dinyatakan tidak lulus, program tidak hanya mencetak status "TIDAK LULUS", melainkan secara transparan menyebutkan persis parameter mana yang gagal (misal: <code>[Nilai UAS &lt; 50]</code> atau <code>[Kehadiran &lt; 75%]</code>).</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- 9. PENGUJIAN (8 SKENARIO) -->
+                <section id="pengujian" class="card shadow-sm mb-5 border-0">
+                    <div class="card-body p-4">
+                        <h3 class="fw-bold text-primary border-bottom pb-2 mb-3">
+                            <i class="fa-solid fa-vial-circle-check me-2"></i>9. Tabel Pengujian (Minimal 8 Skenario)
+                        </h3>
+                        <p class="text-muted">Pengujian dilakukan secara menyeluruh mencakup kasus normal, nilai batas atas/bawah, kasus kegagalan bersyarat, serta masukan invalid/negatif:</p>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-sm align-middle small">
+                                <thead class="table-dark text-center">
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Skenario Pengujian</th>
+                                        <th>Data Masukan (Tugas, Kuis, UTS, UAS, Hadir)</th>
+                                        <th>Hasil yang Diharapkan</th>
+                                        <th>Hasil Aktual Program</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center">1</td>
+                                        <td><strong>Kasus Normal (Nilai Tinggi)</strong></td>
+                                        <td>Tugas: 85, Kuis: 90, UTS: 80, UAS: 88, Hadir: 95%</td>
+                                        <td>NA: 85.30, Kat: A, Status: LULUS</td>
+                                        <td>NA: 85.30, Kat: A, Status: LULUS</td>
+                                        <td class="text-center"><span class="badge bg-success">Berhasil</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">2</td>
+                                        <td><strong>Batas Atas Sempurna</strong></td>
+                                        <td>Tugas: 100, Kuis: 100, UTS: 100, UAS: 100, Hadir: 100%</td>
+                                        <td>NA: 100.00, Kat: A, Status: LULUS</td>
+                                        <td>NA: 100.00, Kat: A, Status: LULUS</td>
+                                        <td class="text-center"><span class="badge bg-success">Berhasil</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">3</td>
+                                        <td><strong>Batas Ambang Kelulusan (Tepat 60)</strong></td>
+                                        <td>Tugas: 60, Kuis: 60, UTS: 60, UAS: 60, Hadir: 75%</td>
+                                        <td>NA: 60.00, Kat: C, Status: LULUS (Semua syarat terpenuhi)</td>
+                                        <td>NA: 60.00, Kat: C, Status: LULUS</td>
+                                        <td class="text-center"><span class="badge bg-success">Berhasil</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">4</td>
+                                        <td><strong>NA Cukup tapi UAS Gagal (&lt; 50)</strong></td>
+                                        <td>Tugas: 90, Kuis: 90, UTS: 80, UAS: 45, Hadir: 90%</td>
+                                        <td>NA: 71.25 (C+), Status: TIDAK LULUS (karena UAS 45 &lt; 50)</td>
+                                        <td>NA: 71.25, Kat: C+, Status: TIDAK LULUS [Nilai UAS &lt; 50]</td>
+                                        <td class="text-center"><span class="badge bg-success">Berhasil</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">5</td>
+                                        <td><strong>Nilai Akademik Tinggi tapi Kehadiran &lt; 75%</strong></td>
+                                        <td>Tugas: 90, Kuis: 95, UTS: 85, UAS: 90, Hadir: 70%</td>
+                                        <td>NA: 89.25 (A), Status: TIDAK LULUS (karena Kehadiran 70% &lt; 75%)</td>
+                                        <td>NA: 89.25, Kat: A, Status: TIDAK LULUS [Kehadiran &lt; 75%]</td>
+                                        <td class="text-center"><span class="badge bg-success">Berhasil</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">6</td>
+                                        <td><strong>Nilai Batas Bawah / Nol</strong></td>
+                                        <td>Tugas: 0, Kuis: 0, UTS: 0, UAS: 0, Hadir: 0%</td>
+                                        <td>NA: 0.00, Kat: E, Status: TIDAK LULUS</td>
+                                        <td>NA: 0.00, Kat: E, Status: TIDAK LULUS [Ketiga syarat gagal]</td>
+                                        <td class="text-center"><span class="badge bg-success">Berhasil</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">7</td>
+                                        <td><strong>Input Negatif (Validasi)</strong></td>
+                                        <td>Tugas: -15, lalu diinput ulang: 75</td>
+                                        <td>Program menolak -15, munculkan pesan error, minta input ulang</td>
+                                        <td>Muncul error, input diminta ulang hingga valid 75</td>
+                                        <td class="text-center"><span class="badge bg-success">Berhasil</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">8</td>
+                                        <td><strong>Input Lebih dari 100 (Validasi)</strong></td>
+                                        <td>UAS: 120, lalu diinput ulang: 80</td>
+                                        <td>Program menolak 120, munculkan pesan error, minta input ulang</td>
+                                        <td>Muncul error batas 0-100, input berulang hingga valid 80</td>
+                                        <td class="text-center"><span class="badge bg-success">Berhasil</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 10. TRACE TABLE -->
+                <section id="trace-table" class="card shadow-sm mb-5 border-0">
+                    <div class="card-body p-4">
+                        <h3 class="fw-bold text-primary border-bottom pb-2 mb-3">
+                            <i class="fa-solid fa-table-cells me-2"></i>10. Trace Table (Percabangan & Perulangan)
+                        </h3>
+
+                        <h5 class="fw-bold text-dark mt-3">A. Trace Table Percabangan (Evaluasi Kategori & Kelulusan)</h5>
+                        <p class="small text-muted">Penelusuran langkah demi langkah untuk Skenario Mahasiswa dengan: Tugas=90, Kuis=90, UTS=80, UAS=45, Kehadiran=90%.</p>
+                        
+                        <div class="table-responsive mb-4">
+                            <table class="table table-bordered table-sm font-monospace small">
+                                <thead class="table-secondary text-center">
+                                    <tr>
+                                        <th>Langkah Evaluasi</th>
+                                        <th>Kondisi / Ekspresi Logika</th>
+                                        <th>Nilai Kebenaran</th>
+                                        <th>Aksi / Variabel yang Berubah</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Kalkulasi Bobot</td>
+                                        <td>(90*0.2) + (90*0.15) + (80*0.3) + (45*0.35)</td>
+                                        <td>Evaluasi numerik</td>
+                                        <td><code>nilaiAkhir = 71.25</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cek Kategori A</td>
+                                        <td>nilaiAkhir &ge; 85.0 (71.25 &ge; 85.0)</td>
+                                        <td><span class="text-danger fw-bold">FALSE</span></td>
+                                        <td>Lanjut ke cabang berikutnya</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cek Kategori B+</td>
+                                        <td>nilaiAkhir &ge; 80.0 (71.25 &ge; 80.0)</td>
+                                        <td><span class="text-danger fw-bold">FALSE</span></td>
+                                        <td>Lanjut ke cabang berikutnya</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cek Kategori B</td>
+                                        <td>nilaiAkhir &ge; 75.0 (71.25 &ge; 75.0)</td>
+                                        <td><span class="text-danger fw-bold">FALSE</span></td>
+                                        <td>Lanjut ke cabang berikutnya</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cek Kategori C+</td>
+                                        <td>nilaiAkhir &ge; 70.0 (71.25 &ge; 70.0)</td>
+                                        <td><span class="text-success fw-bold">TRUE</span></td>
+                                        <td><code>kategoriNilai = "C+"</code>, lompat keluar dari blok kategori</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cek Syarat Kelulusan</td>
+                                        <td>(nilaiAkhir &ge; 60) AND (nilaiUAS &ge; 50) AND (hadir &ge; 75)<br>
+                                            (71.25 &ge; 60 [T]) AND (45 &ge; 50 [F]) AND (90 &ge; 75 [T])</td>
+                                        <td><span class="text-danger fw-bold">FALSE</span></td>
+                                        <td><code>statusKelulusan = "TIDAK LULUS"</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Rincian Alasan</td>
+                                        <td>nilaiUAS &lt; 50 (45 &lt; 50)</td>
+                                        <td><span class="text-success fw-bold">TRUE</span></td>
+                                        <td><code>catatanKelulusan += "[Nilai UAS &lt; 50]"</code></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h5 class="fw-bold text-dark mt-4">B. Trace Table Perulangan Validasi Input</h5>
+                        <p class="small text-muted">Penelusuran loop do-while saat pengguna memasukkan nilai di luar jangkauan.</p>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-sm font-monospace small">
+                                <thead class="table-secondary text-center">
+                                    <tr>
+                                        <th>Iterasi Ke-</th>
+                                        <th>Nilai Masukan User</th>
+                                        <th>Kondisi Loop (nilai &lt; 0 OR nilai &gt; 100)</th>
+                                        <th>Status Kondisi</th>
+                                        <th>Tindakan Sistem</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center">1</td>
+                                        <td><code>-15</code></td>
+                                        <td>-15 &lt; 0 OR -15 &gt; 100</td>
+                                        <td><span class="text-success fw-bold">TRUE (Mengulang)</span></td>
+                                        <td>Cetak Pesan Error, ulangi prompt input</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">2</td>
+                                        <td><code>105</code></td>
+                                        <td>105 &lt; 0 OR 105 &gt; 100</td>
+                                        <td><span class="text-success fw-bold">TRUE (Mengulang)</span></td>
+                                        <td>Cetak Pesan Error batas 0-100, ulangi prompt</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">3</td>
+                                        <td><code>85</code></td>
+                                        <td>85 &lt; 0 OR 85 &gt; 100</td>
+                                        <td><span class="text-danger fw-bold">FALSE (Berhenti)</span></td>
+                                        <td>Input diterima, keluar dari loop validasi</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 11. TANGKAPAN LAYAR HASIL EKSEKUSI -->
+                <section id="tangkapan-layar" class="card shadow-sm mb-5 border-0">
+                    <div class="card-body p-4">
+                        <h3 class="fw-bold text-primary border-bottom pb-2 mb-3">
+                            <i class="fa-solid fa-terminal me-2"></i>11. Tampilan Hasil Eksekusi Program (Terminal Console)
+                        </h3>
+                        <p class="text-muted">Berikut adalah demonstrasi tangkapan layar terminal saat program <code>modul_a.cpp</code> dijalankan di konsol:</p>
+
+                        <!-- Terminal Mockup Window -->
+                        <div class="rounded shadow overflow-hidden mb-3 border">
+                            <div class="bg-dark text-white px-3 py-2 d-flex align-items-center">
+                                <span class="badge bg-danger rounded-circle p-1 me-1"> </span>
+                                <span class="badge bg-warning rounded-circle p-1 me-1"> </span>
+                                <span class="badge bg-success rounded-circle p-1 me-2"> </span>
+                                <span class="small font-monospace text-white-50">Terminal / Command Prompt - g++ modul_a.cpp -o modul_a</span>
+                            </div>
+                            <div class="bg-black text-light p-3 font-monospace small" style="line-height: 1.45;">
+                                <div class="text-success">$ ./modul_a</div>
+                                <div>========================================================</div>
+                                <div>      SISTEM PENGOLAHAN NILAI MATA KULIAH - MODUL A    </div>
+                                <div>             PROYEK UTS ALGORITMA (SSI1144)            </div>
+                                <div>========================================================</div>
+                                <br>
+                                <div>--------------------------------------------------------</div>
+                                <div>               MASUKKAN DATA MAHASISWA                  </div>
+                                <div>--------------------------------------------------------</div>
+                                <div>Masukkan Nama Mahasiswa : Alexandra Diva</div>
+                                <div>Masukkan NIM Mahasiswa  : 112310001</div>
+                                <div>Masukkan Nilai Tugas (0 - 100) : 85</div>
+                                <div>Masukkan Nilai Kuis (0 - 100)  : 90</div>
+                                <div>Masukkan Nilai UTS (0 - 100)   : 80</div>
+                                <div>Masukkan Nilai UAS (0 - 100)   : 88</div>
+                                <div>Masukkan Kehadiran (%) (0-100) : 95</div>
+                                <br>
+                                <div>========================================================</div>
+                                <div>             RINCIAN HASIL PENILAIAN INDIVIDUAL         </div>
+                                <div>========================================================</div>
+                                <div>Nama Mahasiswa        : Alexandra Diva</div>
+                                <div>NIM                   : 112310001</div>
+                                <div>--------------------------------------------------------</div>
+                                <div>Komponen       Nilai Mentah Bobot     Kontribusi</div>
+                                <div>--------------------------------------------------------</div>
+                                <div>Tugas          85.00       20%       17.00</div>
+                                <div>Kuis           90.00       15%       13.50</div>
+                                <div>UTS            80.00       30%       24.00</div>
+                                <div>UAS            88.00       35%       30.80</div>
+                                <div>--------------------------------------------------------</div>
+                                <div>Kehadiran              : 95.00 %</div>
+                                <div>Nilai Akhir            : 85.30</div>
+                                <div>Kategori Nilai         : A</div>
+                                <div class="text-success fw-bold">Status Hasil           : LULUS</div>
+                                <div>Keterangan             : Memenuhi seluruh persyaratan kelulusan.</div>
+                                <div>========================================================</div>
+                                <br>
+                                <div>Apakah Anda ingin memasukkan data mahasiswa lain? (y/t): t</div>
+                                <br>
+                                <div>========================================================</div>
+                                <div>    PROGRAM SELESAI. TERIMA KASIH TELAH MENGGUNAKAN.    </div>
+                                <div>========================================================</div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-secondary small">
+                            <i class="fa-solid fa-circle-info me-1"></i>
+                            <strong>Catatan Tambahan:</strong> Mahasiswa dapat meng-compile program di terminal masing-masing dengan perintah:
+                            <code>g++ modul_a.cpp -o modul_a</code> kemudian menjalankannya dengan <code>./modul_a</code> (Linux/Mac) atau <code>modul_a.exe</code> (Windows).
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Navigation buttons -->
+                <div class="d-flex justify-content-between my-4">
+                    <a href="index.html" class="btn btn-outline-secondary">
+                        <i class="fa-solid fa-arrow-left me-1"></i> Kembali ke Beranda
+                    </a>
+                    <a href="modul-b.html" class="btn btn-outline-primary">
+                        Lihat Status Modul B (Anggota 2) <i class="fa-solid fa-arrow-right ms-1"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-4 bg-dark text-white text-center mt-5">
+        <div class="container">
+            <p class="m-0 mb-1 fw-bold">Proyek UTS Algoritma &amp; Pengantar Pemrograman (SSI1144)</p>
+            <p class="m-0 text-muted small">Program Studi Sistem Informasi &bull; Fakultas Teknologi dan Desain &bull; Universitas Ma Chung</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Highlight.js for Syntax Highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/cpp.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>
+

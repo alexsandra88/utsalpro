@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul B: Rekapitulasi - Status Pengerjaan</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fa-solid fa-graduation-cap text-primary"></i> SSI1144 Proyek UTS
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fa-solid fa-house"></i> Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="analisis-masalah.html"><i class="fa-solid fa-brain"></i> Analisis Masalah</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="modul-a.html"><i class="fa-solid fa-microchip"></i> Modul A</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="modul-b.html"><i class="fa-solid fa-chart-pie"></i> Modul B</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="program-terintegrasi.html"><i class="fa-solid fa-network-wired"></i> Program Integrasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="refleksi.html"><i class="fa-solid fa-clipboard-check"></i> Refleksi &amp; AI</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header / Hero Section -->
+    <header class="py-5 text-white" style="background: linear-gradient(135deg, #2c3e50, #3498db);">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-white-50 text-decoration-none">Beranda</a></li>
+                    <li class="breadcrumb-item active text-white" aria-current="page">Modul B</li>
+                </ol>
+            </nav>
+            <span class="badge bg-warning text-dark px-3 py-2 mb-2 font-monospace fs-6">
+                <i class="fa-solid fa-hourglass-half me-1"></i> Status: Dalam Proses Pengerjaan
+            </span>
+            <h1 class="display-5 fw-bold">Modul B: Proses Rekapitulasi Kelas</h1>
+            <p class="lead mb-0">Halaman ini didedikasikan untuk pengerjaan Modul B oleh Anggota Kelompok 2.</p>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                
+                <!-- Status Card -->
+                <div class="card shadow-sm border-0 mb-4 text-center p-5">
+                    <div class="card-body">
+                        <div class="display-1 text-warning mb-3">
+                            <i class="fa-solid fa-person-digging"></i>
+                        </div>
+                        <h3 class="fw-bold text-dark">Modul B Sedang Dikerjakan oleh Anggota 2</h3>
+                        <p class="text-muted lead">
+                            Sesuai dengan pembagian tanggung jawab proyek kelompok, bagian ini akan dikerjakan dan dikembangkan oleh <strong>Mahasiswa 2 (Anggota 2)</strong>.
+                        </p>
+                        
+                        <div class="alert alert-light border text-start mt-4">
+                            <h5 class="fw-bold text-primary"><i class="fa-solid fa-list-check me-2"></i>Rencana Tugas Modul B:</h5>
+                            <ul class="mb-0 small lh-lg">
+                                <li>Penyusunan algoritma deskriptif dan pseudocode untuk rekapitulasi performa kelas.</li>
+                                <li>Pembuatan diagram alur (flowchart) proses rekapitulasi data.</li>
+                                <li>Implementasi kode C++ untuk:
+                                    <ul>
+                                        <li>Menghitung total mahasiswa lulus dan tidak lulus.</li>
+                                        <li>Menghitung sebaran frekuensi kategori nilai (A, B+, B, C+, C, D, E).</li>
+                                        <li>Menghitung rata-rata nilai kelas.</li>
+                                        <li>Mencatat nilai tertinggi dan terendah beserta nama mahasiswa.</li>
+                                        <li>Menghitung rasio/persentase kelulusan kelas.</li>
+                                    </ul>
+                                </li>
+                                <li>Penyusunan tabel pengujian 8 skenario khusus rekapitulasi dan trace table akumulator.</li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-4">
+                            <a href="modul-a.html" class="btn btn-primary me-2">
+                                <i class="fa-solid fa-microchip me-1"></i> Buka Modul A (Proses Utama)
+                            </a>
+                            <a href="index.html" class="btn btn-outline-secondary">
+                                <i class="fa-solid fa-house me-1"></i> Kembali ke Beranda
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info Box Pembagian Tugas -->
+                <div class="card shadow-sm border-0">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-circle-info text-info me-2"></i>Catatan Kontribusi Individu:</h5>
+                        <p class="small text-muted mb-0">
+                            Berdasarkan ketentuan panduan proyek UTS SSI1144, setiap anggota kelompok wajib memiliki riwayat commit mandiri di repository GitHub untuk modul yang diampunya. Pemisahan pengerjaan ini memastikan kontribusi individual tercatat secara adil dan transparan.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-4 bg-dark text-white text-center mt-5">
+        <div class="container">
+            <p class="m-0 mb-1 fw-bold">Proyek UTS Algoritma &amp; Pengantar Pemrograman (SSI1144)</p>
+            <p class="m-0 text-muted small">Program Studi Sistem Informasi &bull; Fakultas Teknologi dan Desain &bull; Universitas Ma Chung</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
