@@ -1,0 +1,115 @@
+
+PSEUDOCODE MODUL B
+SISTEM PENGOLAHAN NILAI MATA KULIAH
+
+MULAI
+    pilihan = -1
+
+    WHILE pilihan != 0 DO
+        Tampilkan menu utama
+        INPUT pilihan
+
+        IF pilihan = 1 THEN
+            INPUT NIM dan nama mahasiswa
+
+            IF NIM sudah terdaftar THEN
+                Tampilkan "NIM sudah terdaftar!"
+            ELSE
+                INPUT jenis mahasiswa
+
+                IF jenis bukan R dan bukan D THEN
+                    Tampilkan "Jenis mahasiswa tidak valid!"
+                ELSE
+                    INPUT nilai tugas, kuis, UTS, UAS, kehadiran
+                    Validasi setiap nilai berada pada rentang 0-100
+
+                    Hitung nilai akhir =
+                        tugas * 0.20 + kuis * 0.20
+                        + UTS * 0.30 + UAS * 0.30
+
+                    IF nilai akhir >= 85 THEN
+                        nilai huruf = A
+                    ELSE IF nilai akhir >= 75 THEN
+                        nilai huruf = B
+                    ELSE IF nilai akhir >= 65 THEN
+                        nilai huruf = C
+                    ELSE IF nilai akhir >= 50 THEN
+                        nilai huruf = D
+                    ELSE
+                        nilai huruf = E
+                    END IF
+
+                    IF nilai akhir >= 60 AND
+                       (jenis = D OR kehadiran >= 75) THEN
+                        status = Lulus
+                    ELSE
+                        status = Tidak lulus
+                    END IF
+
+                    Simpan data mahasiswa
+                END IF
+            END IF
+
+        ELSE IF pilihan = 2 THEN
+            INPUT NIM yang dicari
+            Cari mahasiswa berdasarkan NIM
+
+            IF mahasiswa ditemukan THEN
+                Tampilkan data mahasiswa
+            ELSE
+                Tampilkan "Mahasiswa tidak ditemukan!"
+            END IF
+
+        ELSE IF pilihan = 3 THEN
+            INPUT NIM mahasiswa
+            Cari data mahasiswa
+
+            IF mahasiswa ditemukan THEN
+                INPUT nilai tugas, kuis, UTS, UAS yang baru
+                Hitung ulang nilai akhir, nilai huruf,
+                dan status kelulusan
+            ELSE
+                Tampilkan "Mahasiswa tidak ditemukan!"
+            END IF
+
+        ELSE IF pilihan = 4 THEN
+            IF daftar mahasiswa kosong THEN
+                Tampilkan "Belum ada data mahasiswa"
+            ELSE
+                Tampilkan seluruh data mahasiswa
+            END IF
+
+        ELSE IF pilihan = 5 THEN
+            IF daftar mahasiswa kosong THEN
+                Tampilkan "Belum ada data mahasiswa"
+            ELSE
+                Inisialisasi total = 0
+                Inisialisasi tertinggi = -1
+                Inisialisasi terendah = 101
+                Inisialisasi kategori A, B, C, D, E = 0
+                Inisialisasi jumlah lulus = 0
+
+                FOR setiap mahasiswa DO
+                    Tambahkan nilai akhir ke total
+                    Perbarui nilai tertinggi dan terendah
+                    Hitung jumlah setiap kategori nilai huruf
+
+                    IF mahasiswa lulus THEN
+                        jumlah lulus = jumlah lulus + 1
+                    END IF
+                END FOR
+
+                Hitung rata-rata nilai
+                Hitung jumlah mahasiswa tidak lulus
+                Tampilkan seluruh hasil rekapitulasi
+            END IF
+
+        ELSE IF pilihan = 0 THEN
+            Tampilkan "Program selesai."
+
+        ELSE
+            Tampilkan "Pilihan tidak tersedia!"
+        END IF
+    END WHILE
+
+SELESAI

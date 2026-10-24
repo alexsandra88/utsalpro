@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <vector>
 #include <string>
@@ -112,14 +111,21 @@ private:
         return nullptr;
     }
 
-    double inputNilai(string keterangan) {
-        double nilai;
+    bool inputNilai(const string& keterangan, double& nilai) {
         while (true) {
             cout << keterangan;
-            if (cin >> nilai && nilai >= 0 && nilai <= 100)
-                return nilai;
+            if (cin >> nilai) {
+                if (nilai >= 0 && nilai <= 100)
+                    return true;
 
-            cout << "Nilai harus antara 0 sampai 100!\n";
+                cout << "Nilai harus antara 0 sampai 100!\n";
+            } else {
+                if (cin.eof())
+                    return false;
+
+                cout << "Masukkan nilai berupa angka!\n";
+            }
+
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
@@ -137,7 +143,8 @@ public:
         double t, k, u, a, h;
 
         cout << "NIM: ";
-        cin >> nim;
+        if (!(cin >> nim))
+            return;
 
         if (cari(nim) != nullptr) {
             cout << "NIM sudah terdaftar!\n";
@@ -146,10 +153,12 @@ public:
 
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Nama: ";
-        getline(cin, nama);
+        if (!getline(cin, nama))
+            return;
 
         cout << "Jenis (R = Reguler, D = Dispensasi): ";
-        cin >> jenis;
+        if (!(cin >> jenis))
+            return;
 
         if (jenis != 'R' && jenis != 'r' &&
             jenis != 'D' && jenis != 'd') {
@@ -157,11 +166,12 @@ public:
             return;
         }
 
-        t = inputNilai("Nilai tugas: ");
-        k = inputNilai("Nilai kuis: ");
-        u = inputNilai("Nilai UTS: ");
-        a = inputNilai("Nilai UAS: ");
-        h = inputNilai("Persentase kehadiran: ");
+        if (!inputNilai("Nilai tugas: ", t) ||
+            !inputNilai("Nilai kuis: ", k) ||
+            !inputNilai("Nilai UTS: ", u) ||
+            !inputNilai("Nilai UAS: ", a) ||
+            !inputNilai("Persentase kehadiran: ", h))
+            return;
 
         PesertaKuliah* m;
 
@@ -179,7 +189,8 @@ public:
     void cariMahasiswa() {
         string nim;
         cout << "Masukkan NIM: ";
-        cin >> nim;
+        if (!(cin >> nim))
+            return;
 
         PesertaKuliah* m = cari(nim);
 
@@ -192,7 +203,8 @@ public:
     void ubahNilai() {
         string nim;
         cout << "Masukkan NIM: ";
-        cin >> nim;
+        if (!(cin >> nim))
+            return;
 
         PesertaKuliah* m = cari(nim);
 
@@ -201,10 +213,12 @@ public:
             return;
         }
 
-        double t = inputNilai("Nilai tugas baru: ");
-        double k = inputNilai("Nilai kuis baru: ");
-        double u = inputNilai("Nilai UTS baru: ");
-        double a = inputNilai("Nilai UAS baru: ");
+        double t, k, u, a;
+        if (!inputNilai("Nilai tugas baru: ", t) ||
+            !inputNilai("Nilai kuis baru: ", k) ||
+            !inputNilai("Nilai UTS baru: ", u) ||
+            !inputNilai("Nilai UAS baru: ", a))
+            return;
 
         m->ubahNilai(t, k, u, a);
         cout << "Nilai berhasil diubah dan dihitung ulang!\n";
@@ -285,6 +299,11 @@ public:
             cout << "Pilihan: ";
 
             if (!(cin >> pilihan)) {
+                if (cin.eof()) {
+                    cout << "Program selesai.\n";
+                    break;
+                }
+
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 cout << "Masukkan pilihan berupa angka!\n";
